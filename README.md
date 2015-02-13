@@ -1,7 +1,6 @@
 # Projektuppgiften
 Repo:n till projektuppgiften
 
-Dagens uppgift
 En projektplan:
 - Vilka är med i gruppen
 - Ide till program
