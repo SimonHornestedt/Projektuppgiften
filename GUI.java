@@ -37,6 +37,12 @@ public class GUI extends javax.swing.JFrame {
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
+        cmbSword = new javax.swing.JComboBox();
+        lblSword = new javax.swing.JLabel();
+        cmbMace = new javax.swing.JComboBox();
+        cmbSpear = new javax.swing.JComboBox();
+        lblMace = new javax.swing.JLabel();
+        lblSpear = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         pnlArena = new javax.swing.JPanel();
@@ -106,15 +112,73 @@ public class GUI extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Armor", jTabbedPane3);
 
+        cmbSword.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Basic Sword", "Frostmourne" }));
+        cmbSword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbSwordActionPerformed(evt);
+            }
+        });
+
+        lblSword.setText("Sword");
+
+        cmbMace.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Basic Mace", "Sulfuras" }));
+        cmbMace.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbMaceActionPerformed(evt);
+            }
+        });
+
+        cmbSpear.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Basic Spear", "Dragon Glavie" }));
+        cmbSpear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbSpearActionPerformed(evt);
+            }
+        });
+
+        lblMace.setText("Mace");
+
+        lblSpear.setText("Spear");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 614, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmbSword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lblSword, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(107, 107, 107)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmbMace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(lblMace, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(cmbSpear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblSpear, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(102, 102, 102))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 289, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbSword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbMace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbSpear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSword, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                    .addComponent(lblSpear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblMace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(47, 47, 47))
         );
 
         jTabbedPane2.addTab("2-Handed Weapons", jPanel2);
@@ -602,6 +666,39 @@ public class GUI extends javax.swing.JFrame {
        JOptionPane.showMessageDialog(null, "r u a n0b?");
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
+    private void cmbSwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSwordActionPerformed
+        switch(cmbSword.getSelectedIndex()){
+            case 1: 
+                lblSword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Frostmourne.PNG")));
+            break;
+            default:
+                lblSword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basicsword.png")));
+            break;
+        }
+    }//GEN-LAST:event_cmbSwordActionPerformed
+
+    private void cmbSpearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSpearActionPerformed
+        switch(cmbSpear.getSelectedIndex()){
+            case 1: 
+                lblSpear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/spear.PNG")));
+            break;
+            default:
+                lblSpear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elitespear.png")));
+            break;
+        }
+    }//GEN-LAST:event_cmbSpearActionPerformed
+
+    private void cmbMaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMaceActionPerformed
+        switch(cmbMace.getSelectedIndex()){
+            case 1: 
+                lblMace.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sulfuras.png")));
+            break;
+            default:
+                lblMace.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OneHandedMaceBasic.PNG")));
+            break;
+        }
+    }//GEN-LAST:event_cmbMaceActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -638,6 +735,9 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox cmbMace;
+    private javax.swing.JComboBox cmbSpear;
+    private javax.swing.JComboBox cmbSword;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -695,6 +795,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblGold;
     private javax.swing.JLabel lblHp;
     private javax.swing.JLabel lblLvl;
+    private javax.swing.JLabel lblMace;
+    private javax.swing.JLabel lblSpear;
+    private javax.swing.JLabel lblSword;
     private javax.swing.JPanel pnlArena;
     private javax.swing.JPanel pnlCharacter;
     private javax.swing.JPanel pnlHero;
