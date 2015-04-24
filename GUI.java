@@ -31,20 +31,49 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTabbedPane3 = new javax.swing.JTabbedPane();
+        jPanel6 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         pnlMarketplace = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
-        jTabbedPane3 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
+        tabMarket = new javax.swing.JTabbedPane();
+        pnl2HandedMarket = new javax.swing.JPanel();
         cmbSword = new javax.swing.JComboBox();
         lblSword = new javax.swing.JLabel();
         cmbMace = new javax.swing.JComboBox();
         cmbSpear = new javax.swing.JComboBox();
         lblMace = new javax.swing.JLabel();
         lblSpear = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        btnBuySword = new javax.swing.JButton();
+        btnBuy2hMace = new javax.swing.JButton();
+        btnBuySpear = new javax.swing.JButton();
+        pnl1handedMarket = new javax.swing.JPanel();
+        cmbAxe = new javax.swing.JComboBox();
+        cmb1hMace = new javax.swing.JComboBox();
+        cmbDagger = new javax.swing.JComboBox();
+        lblAxe = new javax.swing.JLabel();
+        lbl1hMace = new javax.swing.JLabel();
+        lblDagger = new javax.swing.JLabel();
+        btnBuyDagger = new javax.swing.JButton();
+        btnBuy1hMace = new javax.swing.JButton();
+        btnBuyAxe = new javax.swing.JButton();
+        pnlShieldMarket = new javax.swing.JPanel();
+        cmbShield = new javax.swing.JComboBox();
+        lblShield = new javax.swing.JLabel();
+        btnBuyShield = new javax.swing.JButton();
+        pnlArmorMarket = new javax.swing.JPanel();
+        cmbCloth = new javax.swing.JComboBox();
+        cmbLeather = new javax.swing.JComboBox();
+        cmbMetal = new javax.swing.JComboBox();
+        jLabel23 = new javax.swing.JLabel();
+        lblLeather = new javax.swing.JLabel();
+        lblMetal = new javax.swing.JLabel();
+        cmbRing = new javax.swing.JComboBox();
+        lblRings = new javax.swing.JLabel();
+        btnCloth = new javax.swing.JButton();
+        btnLeather = new javax.swing.JButton();
+        btnMetal = new javax.swing.JButton();
+        btnRing = new javax.swing.JButton();
         pnlArena = new javax.swing.JPanel();
         pnlHero = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -103,14 +132,25 @@ public class GUI extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
 
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 609, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 302, Short.MAX_VALUE)
+        );
+
+        jTabbedPane3.addTab("tab1", jPanel6);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gladiator III");
         setBackground(new java.awt.Color(204, 204, 204));
         setResizable(false);
 
-        jLabel7.setText("BILD");
-
-        jTabbedPane2.addTab("Armor", jTabbedPane3);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Marketplace.PNG"))); // NOI18N
 
         cmbSword.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Basic Sword", "Frostmourne" }));
         cmbSword.addActionListener(new java.awt.event.ActionListener() {
@@ -119,9 +159,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        lblSword.setText("Sword");
-
-        cmbMace.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Basic Mace", "Sulfuras" }));
+        cmbMace.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Big Basic Mace", "Sulfuras" }));
         cmbMace.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbMaceActionPerformed(evt);
@@ -135,101 +173,300 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        lblMace.setText("Mace");
+        btnBuySword.setText("Buy Sword");
 
-        lblSpear.setText("Spear");
+        btnBuy2hMace.setText("Buy Mace");
+        btnBuy2hMace.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuy2hMaceActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cmbSword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+        btnBuySpear.setText("Buy Spear");
+
+        javax.swing.GroupLayout pnl2HandedMarketLayout = new javax.swing.GroupLayout(pnl2HandedMarket);
+        pnl2HandedMarket.setLayout(pnl2HandedMarketLayout);
+        pnl2HandedMarketLayout.setHorizontalGroup(
+            pnl2HandedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl2HandedMarketLayout.createSequentialGroup()
+                .addGroup(pnl2HandedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl2HandedMarketLayout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(pnl2HandedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cmbSword, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnBuySword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(pnl2HandedMarketLayout.createSequentialGroup()
+                        .addGap(83, 83, 83)
                         .addComponent(lblSword, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(107, 107, 107)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cmbMace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
+                .addGroup(pnl2HandedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl2HandedMarketLayout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addGroup(pnl2HandedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cmbMace, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnBuy2hMace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(pnl2HandedMarketLayout.createSequentialGroup()
+                        .addGap(120, 120, 120)
                         .addComponent(lblMace, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(cmbSpear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(78, 78, 78))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addGroup(pnl2HandedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl2HandedMarketLayout.createSequentialGroup()
                         .addComponent(lblSpear, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(102, 102, 102))))
+                        .addGap(102, 102, 102))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl2HandedMarketLayout.createSequentialGroup()
+                        .addGroup(pnl2HandedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnBuySpear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmbSpear, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(78, 78, 78))))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        pnl2HandedMarketLayout.setVerticalGroup(
+            pnl2HandedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl2HandedMarketLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnl2HandedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbSword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbMace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbSpear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSword, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
-                    .addComponent(lblSpear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblMace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(47, 47, 47))
+                .addGroup(pnl2HandedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(lblMace, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblSpear, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                    .addComponent(lblSword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addGroup(pnl2HandedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBuySword)
+                    .addComponent(btnBuy2hMace)
+                    .addComponent(btnBuySpear))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("2-Handed Weapons", jPanel2);
+        tabMarket.addTab("2-Handed Weapons", pnl2HandedMarket);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 614, Short.MAX_VALUE)
+        cmbAxe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Basic Axe", "Shadowmourne" }));
+        cmbAxe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbAxeActionPerformed(evt);
+            }
+        });
+
+        cmb1hMace.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Small Basic Mace", "Morningstar of Angmar" }));
+        cmb1hMace.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb1hMaceActionPerformed(evt);
+            }
+        });
+
+        cmbDagger.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Basic Dagger", "Fangs of the Father" }));
+        cmbDagger.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbDaggerActionPerformed(evt);
+            }
+        });
+
+        btnBuyDagger.setText("Buy Dagger");
+
+        btnBuy1hMace.setText("Buy Mace");
+
+        btnBuyAxe.setText("Buy Axe");
+
+        javax.swing.GroupLayout pnl1handedMarketLayout = new javax.swing.GroupLayout(pnl1handedMarket);
+        pnl1handedMarket.setLayout(pnl1handedMarketLayout);
+        pnl1handedMarketLayout.setHorizontalGroup(
+            pnl1handedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1handedMarketLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addGroup(pnl1handedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmbAxe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1handedMarketLayout.createSequentialGroup()
+                        .addComponent(lblAxe, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29))
+                    .addComponent(btnBuyAxe, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnl1handedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1handedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnl1handedMarketLayout.createSequentialGroup()
+                            .addGap(63, 63, 63)
+                            .addComponent(cmb1hMace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnl1handedMarketLayout.createSequentialGroup()
+                            .addGap(106, 106, 106)
+                            .addComponent(lbl1hMace, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnl1handedMarketLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBuy1hMace, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addGroup(pnl1handedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnBuyDagger, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmbDagger, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnl1handedMarketLayout.createSequentialGroup()
+                        .addComponent(lblDagger, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)))
+                .addGap(56, 56, 56))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 289, Short.MAX_VALUE)
+        pnl1handedMarketLayout.setVerticalGroup(
+            pnl1handedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl1handedMarketLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(pnl1handedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbAxe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmb1hMace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbDagger, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(pnl1handedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnl1handedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblAxe, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                        .addComponent(lblDagger, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbl1hMace, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnl1handedMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBuyDagger)
+                    .addComponent(btnBuy1hMace)
+                    .addComponent(btnBuyAxe))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("1-Handed Weapons", jPanel3);
+        tabMarket.addTab("1-Handed Weapons", pnl1handedMarket);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 614, Short.MAX_VALUE)
+        cmbShield.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Round Shield", "Roman Shield" }));
+        cmbShield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbShieldActionPerformed(evt);
+            }
+        });
+
+        btnBuyShield.setText("Buy Shield");
+
+        javax.swing.GroupLayout pnlShieldMarketLayout = new javax.swing.GroupLayout(pnlShieldMarket);
+        pnlShieldMarket.setLayout(pnlShieldMarketLayout);
+        pnlShieldMarketLayout.setHorizontalGroup(
+            pnlShieldMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlShieldMarketLayout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addGroup(pnlShieldMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cmbShield, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBuyShield, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
+                .addComponent(lblShield, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 289, Short.MAX_VALUE)
+        pnlShieldMarketLayout.setVerticalGroup(
+            pnlShieldMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlShieldMarketLayout.createSequentialGroup()
+                .addGroup(pnlShieldMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlShieldMarketLayout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(lblShield, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlShieldMarketLayout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(cmbShield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuyShield)))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("Shields", jPanel4);
+        tabMarket.addTab("Shields", pnlShieldMarket);
+
+        cmbCloth.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Helm", "Upperbody", "Lowerbody", "Arms", "Feet" }));
+
+        cmbLeather.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Helm", "Upperbody", "Lowerbody", "Arms", "Feet" }));
+
+        cmbMetal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Helm", "Upperbody", "Lowerbody", "Arms", "Feet" }));
+
+        jLabel23.setText("Cloth Armor");
+
+        lblLeather.setText("Leather Armor");
+
+        lblMetal.setText("Metal Armor");
+
+        cmbRing.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Band of Pain", "Signet of Speed", "Legendary Amulet" }));
+
+        lblRings.setText("Rings");
+
+        btnCloth.setText("Buy Cloth");
+
+        btnLeather.setText("Buy Leather");
+
+        btnMetal.setText("Buy Metal");
+
+        btnRing.setText("Buy Ring");
+
+        javax.swing.GroupLayout pnlArmorMarketLayout = new javax.swing.GroupLayout(pnlArmorMarket);
+        pnlArmorMarket.setLayout(pnlArmorMarketLayout);
+        pnlArmorMarketLayout.setHorizontalGroup(
+            pnlArmorMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlArmorMarketLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(pnlArmorMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlArmorMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlArmorMarketLayout.createSequentialGroup()
+                            .addComponent(cmbCloth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(58, 58, 58))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlArmorMarketLayout.createSequentialGroup()
+                            .addComponent(btnCloth)
+                            .addGap(57, 57, 57)))
+                    .addGroup(pnlArmorMarketLayout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addGap(79, 79, 79)))
+                .addGroup(pnlArmorMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblLeather)
+                    .addComponent(btnLeather)
+                    .addComponent(cmbLeather, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(pnlArmorMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblMetal)
+                    .addComponent(cmbMetal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMetal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addGroup(pnlArmorMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cmbRing, 0, 123, Short.MAX_VALUE)
+                    .addComponent(lblRings)
+                    .addComponent(btnRing, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(42, 42, 42))
+        );
+        pnlArmorMarketLayout.setVerticalGroup(
+            pnlArmorMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlArmorMarketLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(pnlArmorMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(lblLeather)
+                    .addComponent(lblMetal)
+                    .addComponent(lblRings))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlArmorMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbCloth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbLeather, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbMetal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbRing, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                .addGroup(pnlArmorMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCloth)
+                    .addComponent(btnMetal)
+                    .addComponent(btnLeather)
+                    .addComponent(btnRing))
+                .addGap(73, 73, 73))
+        );
+
+        tabMarket.addTab("Armor", pnlArmorMarket);
 
         javax.swing.GroupLayout pnlMarketplaceLayout = new javax.swing.GroupLayout(pnlMarketplace);
         pnlMarketplace.setLayout(pnlMarketplaceLayout);
         pnlMarketplaceLayout.setHorizontalGroup(
             pnlMarketplaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMarketplaceLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMarketplaceLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane2)
+                .addGroup(pnlMarketplaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tabMarket)
+                    .addGroup(pnlMarketplaceLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlMarketplaceLayout.setVerticalGroup(
             pnlMarketplaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMarketplaceLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tabMarket, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
 
         jTabbedPane1.addTab("Marketplace", pnlMarketplace);
@@ -240,11 +477,11 @@ public class GUI extends javax.swing.JFrame {
         pnlArena.setLayout(pnlArenaLayout);
         pnlArenaLayout.setHorizontalGroup(
             pnlArenaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 639, Short.MAX_VALUE)
+            .addGap(0, 666, Short.MAX_VALUE)
         );
         pnlArenaLayout.setVerticalGroup(
             pnlArenaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 672, Short.MAX_VALUE)
+            .addGap(0, 717, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Arena", pnlArena);
@@ -433,7 +670,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(jLabel9)
                             .addComponent(jLabel8)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 30, Short.MAX_VALUE))
+                        .addGap(0, 57, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeroLayout.createSequentialGroup()
                         .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
@@ -599,7 +836,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");
@@ -653,10 +890,14 @@ public class GUI extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(pnlCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTabbedPane1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(pnlCharacter, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         pack();
@@ -680,10 +921,10 @@ public class GUI extends javax.swing.JFrame {
     private void cmbSpearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSpearActionPerformed
         switch(cmbSpear.getSelectedIndex()){
             case 1: 
-                lblSpear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/spear.PNG")));
+                lblSpear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elitespear.png")));
             break;
             default:
-                lblSpear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elitespear.png")));
+                lblSpear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/spear.PNG")));
             break;
         }
     }//GEN-LAST:event_cmbSpearActionPerformed
@@ -694,10 +935,58 @@ public class GUI extends javax.swing.JFrame {
                 lblMace.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Sulfuras.png")));
             break;
             default:
-                lblMace.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OneHandedMaceBasic.PNG")));
+                lblMace.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TwoHandedMaceBasic.PNG")));
             break;
         }
     }//GEN-LAST:event_cmbMaceActionPerformed
+
+    private void cmbAxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAxeActionPerformed
+        switch(cmbAxe.getSelectedIndex()){
+            case 1: 
+                lblAxe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/2heliteaxe.PNG")));
+            break;
+            default:
+                lblAxe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gimli.png")));
+            break;
+        }
+    }//GEN-LAST:event_cmbAxeActionPerformed
+
+    private void cmb1hMaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb1hMaceActionPerformed
+        switch(cmb1hMace.getSelectedIndex()){
+            case 1: 
+                lbl1hMace.setIcon(new javax.swing.ImageIcon(getClass().getResource("/angmar.png")));
+            break;
+            default:
+                lbl1hMace.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OnehandedMaceBasic.PNG")));
+            break;
+        }
+    }//GEN-LAST:event_cmb1hMaceActionPerformed
+
+    private void cmbDaggerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDaggerActionPerformed
+        switch(cmbDagger.getSelectedIndex()){
+            case 1: 
+                lblDagger.setIcon(new javax.swing.ImageIcon(getClass().getResource("/elitedagger.png")));
+            break;
+            default:
+                lblDagger.setIcon(new javax.swing.ImageIcon(getClass().getResource("/basicDagger.png")));
+            break;
+        }
+    }//GEN-LAST:event_cmbDaggerActionPerformed
+
+    private void cmbShieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbShieldActionPerformed
+        switch(cmbShield.getSelectedIndex()){
+            case 1: 
+                lblShield.setIcon(new javax.swing.ImageIcon(getClass().getResource("/romersk.png")));
+            break;
+            default:
+                lblShield.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rundsköld.png")));
+            break;
+        }
+    }//GEN-LAST:event_cmbShieldActionPerformed
+
+    private void btnBuy2hMaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuy2hMaceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuy2hMaceActionPerformed
 
     /**
      * @param args the command line arguments
@@ -735,7 +1024,26 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuy1hMace;
+    private javax.swing.JButton btnBuy2hMace;
+    private javax.swing.JButton btnBuyAxe;
+    private javax.swing.JButton btnBuyDagger;
+    private javax.swing.JButton btnBuyShield;
+    private javax.swing.JButton btnBuySpear;
+    private javax.swing.JButton btnBuySword;
+    private javax.swing.JButton btnCloth;
+    private javax.swing.JButton btnLeather;
+    private javax.swing.JButton btnMetal;
+    private javax.swing.JButton btnRing;
+    private javax.swing.JComboBox cmb1hMace;
+    private javax.swing.JComboBox cmbAxe;
+    private javax.swing.JComboBox cmbCloth;
+    private javax.swing.JComboBox cmbDagger;
+    private javax.swing.JComboBox cmbLeather;
     private javax.swing.JComboBox cmbMace;
+    private javax.swing.JComboBox cmbMetal;
+    private javax.swing.JComboBox cmbRing;
+    private javax.swing.JComboBox cmbShield;
     private javax.swing.JComboBox cmbSpear;
     private javax.swing.JComboBox cmbSword;
     private javax.swing.JLabel jLabel1;
@@ -753,6 +1061,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -771,14 +1080,11 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField10;
@@ -790,18 +1096,30 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel lbl1hMace;
+    private javax.swing.JLabel lblAxe;
+    private javax.swing.JLabel lblDagger;
     private javax.swing.JLabel lblExp;
     private javax.swing.JLabel lblGladName;
     private javax.swing.JLabel lblGold;
     private javax.swing.JLabel lblHp;
+    private javax.swing.JLabel lblLeather;
     private javax.swing.JLabel lblLvl;
     private javax.swing.JLabel lblMace;
+    private javax.swing.JLabel lblMetal;
+    private javax.swing.JLabel lblRings;
+    private javax.swing.JLabel lblShield;
     private javax.swing.JLabel lblSpear;
     private javax.swing.JLabel lblSword;
+    private javax.swing.JPanel pnl1handedMarket;
+    private javax.swing.JPanel pnl2HandedMarket;
     private javax.swing.JPanel pnlArena;
+    private javax.swing.JPanel pnlArmorMarket;
     private javax.swing.JPanel pnlCharacter;
     private javax.swing.JPanel pnlHero;
     private javax.swing.JPanel pnlMarketplace;
+    private javax.swing.JPanel pnlShieldMarket;
+    private javax.swing.JTabbedPane tabMarket;
     private javax.swing.JTextField txfExp;
     private javax.swing.JTextField txfGold;
     private javax.swing.JTextField txfHp;
