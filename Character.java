@@ -1,14 +1,19 @@
 
+import java.util.ArrayList;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author 96simrog
- */
-public class Character {
+
+
+
+public abstract class Character {
+    protected String name;
     
-}
+    public Character(String n){
+        this.name = n;
+    }
+    public abstract void setStats(String[] posts);
+    public abstract int[] getStats();
+    public abstract Character getCharacters(String n);
+    public abstract String getName();
+    @Override
+    public abstract String toString();
+}   
