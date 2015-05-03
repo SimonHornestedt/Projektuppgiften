@@ -62,14 +62,7 @@ public class InventoryTableModel extends AbstractTableModel {
      * @param col cellens kolumn
      * @return boolean med värde true om det går och false om den inte kan ändras
      */
-    @Override
-    public boolean isCellEditable(int row, int col) {
-        if (col < 2) {
-            return false;
-        } else {
-            return true;
-        }
-    }
+    
 
     /**
      * Sätter värde i specifierad cell

@@ -41,12 +41,35 @@ public class Player extends Character{
     }
     public void addWeapon(Weapon wep){
         wepInventory.add(wep);
-        
+        gold -= wep.getCost();
+        System.out.println("Guld använt och vapen köpt");
+    }
+    public void addArmor(Armor arm){
+        armorInventory.add(arm);
+        gold -= arm.getCost();
+        System.out.println("Guld använt och armor köpt");
+    }
+    public int getGold(){
+        return gold;
+    }
+    public ArrayList <Weapon> getWepInv(){
+        return wepInventory;
+    }
+    public ArrayList <Armor> getArmInv(){
+        return armorInventory;
     }
     @Override
     public int[] getStats(){
         int[] statList = new int[]{agi, str, spd, thg, onehand, twohand, hack, stab, crush, lvl, exp, HP, gold};
         return statList;
+    }
+    public boolean hasMoney(int cost){
+        if(cost > gold){
+            return false;
+        }else{
+            return true;
+        }
+       
     }
     @Override
     public void setStats(String[] posts) {

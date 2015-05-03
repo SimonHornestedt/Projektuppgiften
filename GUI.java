@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -28,6 +29,7 @@ public class GUI extends javax.swing.JFrame {
         this.setIconImage(img.getImage());
         jTableInv.setModel(InventoryTable);  
         setGearVisibility(false);
+        enableButtons(false);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -105,6 +107,7 @@ public class GUI extends javax.swing.JFrame {
         jTableInv = new javax.swing.JTable();
         btnEquip = new javax.swing.JButton();
         btnSetStats = new javax.swing.JButton();
+        btnInfo = new javax.swing.JButton();
         pnlCharacter = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lblGladName = new javax.swing.JLabel();
@@ -118,8 +121,8 @@ public class GUI extends javax.swing.JFrame {
         txfHp = new javax.swing.JTextField();
         txfGold = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
-        menuItemSave = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        menuFile = new javax.swing.JMenu();
+        menuItemSave = new javax.swing.JMenuItem();
         menuItemOpen = new javax.swing.JMenuItem();
         menuItemNew = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
@@ -244,6 +247,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         btnBuyShield.setText("Buy Shield");
+        btnBuyShield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuyShieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlShieldMarketLayout = new javax.swing.GroupLayout(pnlShieldMarket);
         pnlShieldMarket.setLayout(pnlShieldMarketLayout);
@@ -288,16 +296,37 @@ public class GUI extends javax.swing.JFrame {
         lblMetal.setText("Metal Armor");
 
         cmbRing.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Band of Pain", "Signet of Speed", "Legendary Amulet" }));
+        cmbRing.setSelectedIndex(2);
 
         lblRings.setText("Rings");
 
         btnCloth.setText("Buy Cloth");
+        btnCloth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClothActionPerformed(evt);
+            }
+        });
 
         btnLeather.setText("Buy Leather");
+        btnLeather.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLeatherActionPerformed(evt);
+            }
+        });
 
         btnMetal.setText("Buy Metal");
+        btnMetal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMetalActionPerformed(evt);
+            }
+        });
 
         btnRing.setText("Buy Ring");
+        btnRing.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRingActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlArmorMarketLayout = new javax.swing.GroupLayout(pnlArmorMarket);
         pnlArmorMarket.setLayout(pnlArmorMarketLayout);
@@ -537,6 +566,14 @@ public class GUI extends javax.swing.JFrame {
         btnEquip.setText("Equip/Uneqiup");
 
         btnSetStats.setText("Set Stats");
+        btnSetStats.setEnabled(false);
+
+        btnInfo.setText("Info");
+        btnInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInfoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlHeroLayout = new javax.swing.GroupLayout(pnlHero);
         pnlHero.setLayout(pnlHeroLayout);
@@ -547,9 +584,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(pnlHeroLayout.createSequentialGroup()
-                        .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnEquip)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(69, 69, 69)
                         .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlHeroLayout.createSequentialGroup()
@@ -592,7 +627,12 @@ public class GUI extends javax.swing.JFrame {
                             .addGroup(pnlHeroLayout.createSequentialGroup()
                                 .addComponent(lblStats)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnSetStats)))))
+                                .addComponent(btnSetStats))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeroLayout.createSequentialGroup()
+                        .addComponent(btnEquip)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(276, 276, 276)))
                 .addContainerGap())
         );
         pnlHeroLayout.setVerticalGroup(
@@ -603,7 +643,9 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlHeroLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(btnEquip)
+                        .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnEquip)
+                            .addComponent(btnInfo))
                         .addGap(16, 16, 16)
                         .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlHeroLayout.createSequentialGroup()
@@ -751,16 +793,16 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        menuItemSave.setText("File");
+        menuFile.setText("File");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Save");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        menuItemSave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        menuItemSave.setText("Save");
+        menuItemSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                menuItemSaveActionPerformed(evt);
             }
         });
-        menuItemSave.add(jMenuItem1);
+        menuFile.add(menuItemSave);
 
         menuItemOpen.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
         menuItemOpen.setText("Open");
@@ -769,7 +811,7 @@ public class GUI extends javax.swing.JFrame {
                 menuItemOpenActionPerformed(evt);
             }
         });
-        menuItemSave.add(menuItemOpen);
+        menuFile.add(menuItemOpen);
 
         menuItemNew.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         menuItemNew.setText("New");
@@ -778,8 +820,8 @@ public class GUI extends javax.swing.JFrame {
                 menuItemNewActionPerformed(evt);
             }
         });
-        menuItemSave.add(menuItemNew);
-        menuItemSave.add(jSeparator1);
+        menuFile.add(menuItemNew);
+        menuFile.add(jSeparator1);
 
         menuItemExit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
         menuItemExit.setText("Exit...");
@@ -788,9 +830,9 @@ public class GUI extends javax.swing.JFrame {
                 menuItemExitActionPerformed(evt);
             }
         });
-        menuItemSave.add(menuItemExit);
+        menuFile.add(menuItemExit);
 
-        jMenuBar1.add(menuItemSave);
+        jMenuBar1.add(menuFile);
 
         jMenu2.setText("Help");
 
@@ -835,6 +877,16 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void enableButtons(boolean b){
+        menuItemSave.setEnabled(b);
+        btnBuy1Handed.setEnabled(b);
+        btnBuy2Handed.setEnabled(b);
+        btnBuyShield.setEnabled(b);
+        btnCloth.setEnabled(b);
+        btnLeather.setEnabled(b);
+        btnMetal.setEnabled(b);
+        btnRing.setEnabled(b);
+    }
     private void menuItemHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemHelpActionPerformed
        JOptionPane.showMessageDialog(null, "r u a n0b?");
     }//GEN-LAST:event_menuItemHelpActionPerformed
@@ -917,72 +969,121 @@ public class GUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_menuItemNewActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void menuItemSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSaveActionPerformed
         mod.saveHero();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_menuItemSaveActionPerformed
 
     private void menuItemOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemOpenActionPerformed
         Player tmp = mod.loadHero();
         updateHeroPnl(tmp);
+        enableButtons(true);
     }//GEN-LAST:event_menuItemOpenActionPerformed
 
     private void btnBuy2HandedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuy2HandedActionPerformed
-        TwoHanded wep = null;
+        TwoHanded wep = new TwoHanded("dummy weapon", "never used");
         int i = cmb2Handed.getSelectedIndex();
-        switch(i){
-            case 1:
-                wep = wep.createWeapon(i);
-            break;
-            case 2:
-                wep = wep.createWeapon(i);
-            break;
-            case 3:
-                wep = wep.createWeapon(i);
-                
-            break;    
-            case 4:
-                wep = wep.createWeapon(i);
-            break;    
-            case 5:
-                wep = wep.createWeapon(i);
-            break; 
-            default:
-                wep = wep.createWeapon(i);
-            break;    
-        
-        }
+        wep = wep.createWeapon(i);
         mod.addWeapon(wep);
-        
-        
+        updateHeroPnl(mod.getHero());
+        updateInventory(mod.getHero());
+        System.out.println(mod.getHero().getGold());
     }//GEN-LAST:event_btnBuy2HandedActionPerformed
 
     private void btnBuy1HandedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuy1HandedActionPerformed
-        OneHanded wep = null;
+        OneHanded wep = new OneHanded("dummy weapon", "never used");
         int i = cmb1Handed.getSelectedIndex();
-        switch(i){
-            case 1:
-                wep = wep.createWeapon(i);
-            break;
-            case 2:
-                wep = wep.createWeapon(i);
-            break;
-            case 3:
-                wep = wep.createWeapon(i);
-                
-            break;    
-            case 4:
-                wep = wep.createWeapon(i);
-            break;    
-            case 5:
-                wep = wep.createWeapon(i);
-            break; 
-            default:
-                wep = wep.createWeapon(i);
-            break;    
-        
-        }
+        wep = wep.createWeapon(i);
         mod.addWeapon(wep);
+        updateHeroPnl(mod.getHero());
+        updateInventory(mod.getHero());
+        System.out.println(mod.getHero().getGold());
     }//GEN-LAST:event_btnBuy1HandedActionPerformed
+
+    private void btnBuyShieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyShieldActionPerformed
+        Shield wep = new Shield("dummy weapon", "never used");
+        int i = cmbShield.getSelectedIndex();
+        wep = wep.createWeapon(i);
+        mod.addWeapon(wep);
+        updateHeroPnl(mod.getHero());
+        updateInventory(mod.getHero());
+        System.out.println(mod.getHero().getGold());
+    }//GEN-LAST:event_btnBuyShieldActionPerformed
+
+    private void btnRingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRingActionPerformed
+        Ring arm = new Ring("dummy ring", "never used");
+        int i = cmbRing.getSelectedIndex();
+        arm = arm.createArmor(i);
+        mod.addArmor(arm);
+        updateHeroPnl(mod.getHero());
+        updateInventory(mod.getHero());
+        System.out.println(mod.getHero().getGold());
+    }//GEN-LAST:event_btnRingActionPerformed
+
+    private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
+       String slot = jTableInv.getValueAt(jTableInv.getSelectedRow(), 2).toString();
+       String name = jTableInv.getValueAt(jTableInv.getSelectedRow(), 0).toString();
+       String printString = mod.getInfo(slot, name);
+       JOptionPane.showMessageDialog(null, printString);
+    }//GEN-LAST:event_btnInfoActionPerformed
+
+    private void btnClothActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClothActionPerformed
+        Cloth arm = new Cloth("dummy cloth", "never used");
+        int i = cmbCloth.getSelectedIndex();
+        arm = arm.createArmor(i);
+        mod.addArmor(arm);
+        updateHeroPnl(mod.getHero());
+        updateInventory(mod.getHero());
+        System.out.println(mod.getHero().getGold());
+    }//GEN-LAST:event_btnClothActionPerformed
+
+    private void btnLeatherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeatherActionPerformed
+        Leather arm = new Leather("dummy leather", "never used");
+        int i = cmbLeather.getSelectedIndex();
+        arm = arm.createArmor(i);
+        mod.addArmor(arm);
+        updateHeroPnl(mod.getHero());
+        updateInventory(mod.getHero());
+        System.out.println(mod.getHero().getGold());
+    }//GEN-LAST:event_btnLeatherActionPerformed
+
+    private void btnMetalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMetalActionPerformed
+        Metal arm = new Metal("dummy metal", "never used");
+        int i = cmbMetal.getSelectedIndex();
+        arm = arm.createArmor(i);
+        mod.addArmor(arm);
+        updateHeroPnl(mod.getHero());
+        updateInventory(mod.getHero());
+        System.out.println(mod.getHero().getGold());
+    }//GEN-LAST:event_btnMetalActionPerformed
+    private void updateInventory(Player hero){
+        int n = 0;
+        for(int i = 0; i < 2; i++){
+            if(i == 0){
+                ArrayList <Weapon> weaponInv = hero.getWepInv();
+                if(!weaponInv.isEmpty()){
+                    for( Weapon wep: weaponInv){
+                        String [] posts = wep.toString().split(", ");
+                        for(int m = 0; m < 6; m++){
+                            InventoryTable.setValueAt(posts[m], n, m);
+                        }
+                    n++;
+                    }
+                }
+            }
+            else if(i == 1){
+                ArrayList <Armor> armInv = hero.getArmInv();
+                if(!armInv.isEmpty()){
+                    for(Armor arm : armInv){
+                        String [] posts = arm.toString().split(", ");
+                        for(int m = 0; m < 6; m++){
+                            InventoryTable.setValueAt(posts[m], n, m);
+                        }
+                    n++;
+                    }
+                }               
+            }
+        }
+    }
     private void setGearVisibility(boolean b){
         lblHelm.setVisible(b);
         lblChest.setVisible(b);
@@ -1056,6 +1157,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton btnBuyShield;
     private javax.swing.JButton btnCloth;
     private javax.swing.JButton btnEquip;
+    private javax.swing.JButton btnInfo;
     private javax.swing.JButton btnLeather;
     private javax.swing.JButton btnMetal;
     private javax.swing.JButton btnRing;
@@ -1076,7 +1178,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -1121,12 +1222,13 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblTgh;
     private javax.swing.JLabel lblTwoStats;
     private javax.swing.JLabel lblWepSkills;
+    private javax.swing.JMenu menuFile;
     private javax.swing.JMenuItem menuItemAbout;
     private javax.swing.JMenuItem menuItemExit;
     private javax.swing.JMenuItem menuItemHelp;
     private javax.swing.JMenuItem menuItemNew;
     private javax.swing.JMenuItem menuItemOpen;
-    private javax.swing.JMenu menuItemSave;
+    private javax.swing.JMenuItem menuItemSave;
     private javax.swing.JPanel pnl1handedMarket;
     private javax.swing.JPanel pnl2HandedMarket;
     private javax.swing.JPanel pnlArena;

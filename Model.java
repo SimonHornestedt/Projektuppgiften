@@ -1,5 +1,6 @@
 
 import java.io.*;
+import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -31,7 +32,47 @@ public class Model {
         }
     }
     public void addWeapon(Weapon wep){
-        hero.addWeapon(wep);
+        if(hero.hasMoney(wep.getCost())){  
+            hero.addWeapon(wep);
+        }else{
+            JOptionPane.showMessageDialog(null, "You don't have enough"
+                    + " money to buy that!");
+        }
+        
+    }
+    public String getInfo(String slot, String name){
+        String str = null;
+        if("1-Handed".equals(slot) || "2-Handed".equals(slot) 
+                || "Shield".equals(slot)){
+            ArrayList <Weapon> wepInv = hero.getWepInv();
+            for(Weapon wep: wepInv){
+                if(wep.getName().equals(name)){
+                    str = wep.getInfo();
+                }
+            }
+        }else if("Chest".equals(slot) ||"Head".equals(slot) 
+                ||"Arm".equals(slot) ||"Legs".equals(slot) 
+                ||"Feet".equals(slot) || "Ring".equals(slot)){
+            ArrayList <Armor> armInv = hero.getArmInv();
+            for(Armor arm: armInv){
+                if(arm.getName().equals(name)){
+                    str = arm.getInfo();
+                }
+            }
+        }
+        
+        return str;
+    }
+    public void addArmor(Armor arm){
+        if(hero.hasMoney(arm.getCost())){  
+            hero.addArmor(arm);
+        }else{
+            JOptionPane.showMessageDialog(null, "You don't have enough money to buy that!");
+        }
+        
+    }
+    public Player getHero(){
+        return hero;
     }
     public Player loadHero(){
         
