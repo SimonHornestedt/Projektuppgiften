@@ -82,8 +82,6 @@ public class GUI extends javax.swing.JFrame {
         lblOneStats = new javax.swing.JLabel();
         lblTwoStats = new javax.swing.JLabel();
         lblHackStats = new javax.swing.JLabel();
-        lblStabStats = new javax.swing.JLabel();
-        lblCrushStats = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
@@ -92,17 +90,16 @@ public class GUI extends javax.swing.JFrame {
         jTextField9 = new javax.swing.JTextField();
         jTextField10 = new javax.swing.JTextField();
         jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jPanel5 = new javax.swing.JPanel();
+        pnlGear = new javax.swing.JPanel();
         lblChest = new javax.swing.JLabel();
         lblHelm = new javax.swing.JLabel();
         lblArm = new javax.swing.JLabel();
         lblLegs = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        lblFeet = new javax.swing.JLabel();
         lblRing = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
+        lblTwoHanded = new javax.swing.JLabel();
+        lblOneHanded = new javax.swing.JLabel();
+        lblGearShield = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableInv = new javax.swing.JTable();
         btnEquip = new javax.swing.JButton();
@@ -445,11 +442,7 @@ public class GUI extends javax.swing.JFrame {
 
         lblTwoStats.setText("2-Handed:");
 
-        lblHackStats.setText("Hack:");
-
-        lblStabStats.setText("Stab:");
-
-        lblCrushStats.setText("Crush: ");
+        lblHackStats.setText("Shield:");
 
         jTextField2.setEditable(false);
         jTextField2.setFocusable(false);
@@ -475,95 +468,154 @@ public class GUI extends javax.swing.JFrame {
         jTextField11.setEditable(false);
         jTextField11.setFocusable(false);
 
-        jTextField12.setEditable(false);
-        jTextField12.setFocusable(false);
-
-        jPanel5.setMinimumSize(new java.awt.Dimension(401, 449));
+        pnlGear.setMinimumSize(new java.awt.Dimension(401, 449));
 
         lblChest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/breast.png"))); // NOI18N
         lblChest.setText("HARNESK");
+        lblChest.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblChest.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblChestMouseClicked(evt);
+            }
+        });
 
         lblHelm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/helm.png"))); // NOI18N
         lblHelm.setText(" HJÄLM");
+        lblHelm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblHelm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblHelmMouseClicked(evt);
+            }
+        });
 
         lblArm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/arm.png"))); // NOI18N
         lblArm.setText("ARM");
+        lblArm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblArm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblArmMouseClicked(evt);
+            }
+        });
 
         lblLegs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/legs.png"))); // NOI18N
         lblLegs.setText("BEN");
+        lblLegs.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblLegs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblLegsMouseClicked(evt);
+            }
+        });
 
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sandal.png"))); // NOI18N
-        jLabel19.setText("SKOR");
+        lblFeet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sandal.png"))); // NOI18N
+        lblFeet.setText("SKOR");
+        lblFeet.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblFeet.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblFeetMouseClicked(evt);
+            }
+        });
 
         lblRing.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Ring.png"))); // NOI18N
         lblRing.setText("RING");
+        lblRing.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblRing.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblRingMouseClicked(evt);
+            }
+        });
 
-        jLabel21.setText("2-HAND");
+        lblTwoHanded.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        lblTwoHanded.setText("2H EQUIPPED");
+        lblTwoHanded.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblTwoHanded.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblTwoHandedMouseClicked(evt);
+            }
+        });
 
-        jLabel25.setText("1-HAND");
+        lblOneHanded.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        lblOneHanded.setText("1H EQUIPPED");
+        lblOneHanded.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblOneHanded.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblOneHandedMouseClicked(evt);
+            }
+        });
 
-        jLabel22.setText("SKÖLD");
+        lblGearShield.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        lblGearShield.setText("SHIELD EQUIPPED");
+        lblGearShield.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblGearShield.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblGearShieldMouseClicked(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlGearLayout = new javax.swing.GroupLayout(pnlGear);
+        pnlGear.setLayout(pnlGearLayout);
+        pnlGearLayout.setHorizontalGroup(
+            pnlGearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlGearLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlGearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlGearLayout.createSequentialGroup()
+                        .addComponent(lblOneHanded, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblGearShield, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlGearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblLegs, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblChest, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addGroup(pnlGearLayout.createSequentialGroup()
                                 .addGap(13, 13, 13)
-                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lblFeet, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlGearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblArm, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblRing, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(11, 11, 11))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                    .addGroup(pnlGearLayout.createSequentialGroup()
+                        .addComponent(lblTwoHanded, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(145, 145, 145)
                         .addComponent(lblHelm, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(96, 96, 96))))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        pnlGearLayout.setVerticalGroup(
+            pnlGearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlGearLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblHelm, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(pnlGearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlGearLayout.createSequentialGroup()
                         .addComponent(lblChest)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblLegs, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(lblFeet, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlGearLayout.createSequentialGroup()
                         .addComponent(lblArm, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
                         .addComponent(lblRing, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(28, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
+            .addGroup(pnlGearLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(lblTwoHanded, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlGearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblOneHanded, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblGearShield, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
         );
 
         jScrollPane1.setViewportView(jTableInv);
 
         btnEquip.setText("Equip/Uneqiup");
+        btnEquip.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEquipActionPerformed(evt);
+            }
+        });
 
         btnSetStats.setText("Set Stats");
         btnSetStats.setEnabled(false);
@@ -584,17 +636,12 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(pnlHeroLayout.createSequentialGroup()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnlGear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(69, 69, 69)
                         .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlHeroLayout.createSequentialGroup()
-                                .addComponent(lblCrushStats)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlHeroLayout.createSequentialGroup()
-                                .addComponent(lblStabStats)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnlHeroLayout.createSequentialGroup()
                                 .addComponent(lblHackStats)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -647,7 +694,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(btnEquip)
                             .addComponent(btnInfo))
                         .addGap(16, 16, 16)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pnlGear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlHeroLayout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -683,14 +730,8 @@ public class GUI extends javax.swing.JFrame {
                         .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblHackStats)
                             .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblStabStats)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCrushStats)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(56, 56, 56)
+                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         jTabbedPane1.addTab("Hero", pnlHero);
@@ -956,17 +997,15 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemExitActionPerformed
 
     private void menuItemNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewActionPerformed
-        
-        
         String newHeroName = JOptionPane.showInputDialog(null,
                 "Please choose a name for your gladiator:",
                 "New gladiator:", 
                 JOptionPane.PLAIN_MESSAGE);
-        Player tmp = mod.createHero(newHeroName);
-        this.updateHeroPnl(tmp);
-        
-        
-        
+        if(newHeroName != null){
+            Player tmp = mod.createHero(newHeroName);
+            this.updateHeroPnl(tmp);
+            enableButtons(true);
+        }        
     }//GEN-LAST:event_menuItemNewActionPerformed
 
     private void menuItemSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSaveActionPerformed
@@ -975,12 +1014,17 @@ public class GUI extends javax.swing.JFrame {
 
     private void menuItemOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemOpenActionPerformed
         Player tmp = mod.loadHero();
-        updateHeroPnl(tmp);
-        enableButtons(true);
+        if(tmp != null){
+            updateHeroPnl(tmp);
+            enableButtons(true);
+            this.updateGearLbls();
+            updateInventory(mod.getHero());
+        }
+        
     }//GEN-LAST:event_menuItemOpenActionPerformed
 
     private void btnBuy2HandedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuy2HandedActionPerformed
-        TwoHanded wep = new TwoHanded("dummy weapon", "never used");
+        Weapon wep = new TwoHanded("dummy weapon");
         int i = cmb2Handed.getSelectedIndex();
         wep = wep.createWeapon(i);
         mod.addWeapon(wep);
@@ -990,7 +1034,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuy2HandedActionPerformed
 
     private void btnBuy1HandedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuy1HandedActionPerformed
-        OneHanded wep = new OneHanded("dummy weapon", "never used");
+        Weapon wep = new OneHanded("dummy weapon");
         int i = cmb1Handed.getSelectedIndex();
         wep = wep.createWeapon(i);
         mod.addWeapon(wep);
@@ -1000,7 +1044,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuy1HandedActionPerformed
 
     private void btnBuyShieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyShieldActionPerformed
-        Shield wep = new Shield("dummy weapon", "never used");
+        Weapon wep = new Shield("dummy weapon");
         int i = cmbShield.getSelectedIndex();
         wep = wep.createWeapon(i);
         mod.addWeapon(wep);
@@ -1010,7 +1054,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuyShieldActionPerformed
 
     private void btnRingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRingActionPerformed
-        Ring arm = new Ring("dummy ring", "never used");
+        Armor arm = new Ring("dummy ring");
         int i = cmbRing.getSelectedIndex();
         arm = arm.createArmor(i);
         mod.addArmor(arm);
@@ -1027,17 +1071,16 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInfoActionPerformed
 
     private void btnClothActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClothActionPerformed
-        Cloth arm = new Cloth("dummy cloth", "never used");
+        Armor arm = new Cloth("dummy cloth");
         int i = cmbCloth.getSelectedIndex();
         arm = arm.createArmor(i);
         mod.addArmor(arm);
-        updateHeroPnl(mod.getHero());
         updateInventory(mod.getHero());
         System.out.println(mod.getHero().getGold());
     }//GEN-LAST:event_btnClothActionPerformed
 
     private void btnLeatherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeatherActionPerformed
-        Leather arm = new Leather("dummy leather", "never used");
+        Armor arm = new Leather("dummy leather");
         int i = cmbLeather.getSelectedIndex();
         arm = arm.createArmor(i);
         mod.addArmor(arm);
@@ -1047,7 +1090,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLeatherActionPerformed
 
     private void btnMetalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMetalActionPerformed
-        Metal arm = new Metal("dummy metal", "never used");
+        Armor arm = new Metal("dummy metal");
         int i = cmbMetal.getSelectedIndex();
         arm = arm.createArmor(i);
         mod.addArmor(arm);
@@ -1055,6 +1098,67 @@ public class GUI extends javax.swing.JFrame {
         updateInventory(mod.getHero());
         System.out.println(mod.getHero().getGold());
     }//GEN-LAST:event_btnMetalActionPerformed
+
+    private void btnEquipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEquipActionPerformed
+        String slot = jTableInv.getValueAt(jTableInv.getSelectedRow(), 2).toString();
+        String name = jTableInv.getValueAt(jTableInv.getSelectedRow(), 0).toString();
+        mod.equipWeapon(slot, name);
+        this.updateGearLbls();
+    }//GEN-LAST:event_btnEquipActionPerformed
+
+    private void lblGearShieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGearShieldMouseClicked
+        String slot = "Shield";
+        mod.unequipWeapon(slot);
+        this.updateGearLbls();
+    }//GEN-LAST:event_lblGearShieldMouseClicked
+
+    private void lblOneHandedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblOneHandedMouseClicked
+        String slot = "1-Handed";
+        mod.unequipWeapon(slot);
+        this.updateGearLbls();
+    }//GEN-LAST:event_lblOneHandedMouseClicked
+
+    private void lblTwoHandedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTwoHandedMouseClicked
+        String slot = "2-Handed";
+        mod.unequipWeapon(slot);
+        this.updateGearLbls();
+    }//GEN-LAST:event_lblTwoHandedMouseClicked
+
+    private void lblHelmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHelmMouseClicked
+        String slot = "Head";
+        mod.unequipArmor(slot);
+        this.updateGearLbls();
+    }//GEN-LAST:event_lblHelmMouseClicked
+
+    private void lblChestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblChestMouseClicked
+       String slot = "Chest";
+        mod.unequipArmor(slot);
+        this.updateGearLbls();
+    }//GEN-LAST:event_lblChestMouseClicked
+
+    private void lblArmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblArmMouseClicked
+       String slot = "Arm";
+        mod.unequipArmor(slot);
+        this.updateGearLbls();
+    }//GEN-LAST:event_lblArmMouseClicked
+
+    private void lblLegsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLegsMouseClicked
+        String slot = "Legs";
+        mod.unequipArmor(slot);
+        this.updateGearLbls();
+    }//GEN-LAST:event_lblLegsMouseClicked
+
+    private void lblRingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRingMouseClicked
+        String slot = "Ring";
+        mod.unequipArmor(slot);
+        this.updateGearLbls();
+    }//GEN-LAST:event_lblRingMouseClicked
+
+    private void lblFeetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFeetMouseClicked
+        String slot = "Feet";
+        mod.unequipArmor(slot);
+        this.updateGearLbls();
+    }//GEN-LAST:event_lblFeetMouseClicked
     private void updateInventory(Player hero){
         int n = 0;
         for(int i = 0; i < 2; i++){
@@ -1084,18 +1188,51 @@ public class GUI extends javax.swing.JFrame {
             }
         }
     }
+    private void updateGearLbls(){
+        Player hero = mod.getHero();
+        boolean [] equipped = hero.getEquipped();
+        for(int i = 0; i < equipped.length; i++){
+            switch (i){
+                case 0:
+                    lblHelm.setVisible(equipped[i]);
+                break;
+                case 1:
+                    lblChest.setVisible(equipped[i]);
+                break;
+                case 2:
+                    lblArm.setVisible(equipped[i]);
+                break;
+                case 3:
+                    lblLegs.setVisible(equipped[i]);
+                break;    
+                case 4:
+                    lblFeet.setVisible(equipped[i]);
+                break;
+                case 5:
+                    lblRing.setVisible(equipped[i]);
+                break;    
+                case 6:
+                    lblGearShield.setVisible(equipped[i]);
+                break;    
+                case 7:
+                    lblTwoHanded.setVisible(equipped[i]);
+                break;    
+                case 8:
+                    lblOneHanded.setVisible(equipped[i]);
+                break;     
+            }
+        }
+    }
     private void setGearVisibility(boolean b){
         lblHelm.setVisible(b);
         lblChest.setVisible(b);
         lblArm.setVisible(b);
         lblLegs.setVisible(b);
-        jLabel19.setVisible(b);
+        lblFeet.setVisible(b);
         lblRing.setVisible(b);
-        jLabel22.setVisible(b);
-        jLabel25.setVisible(b);
-        jLabel21.setVisible(b);
-        
-        
+        lblGearShield.setVisible(b);
+        lblOneHanded.setVisible(b);
+        lblTwoHanded.setVisible(b);   
     }
     private void updateHeroPnl(Player tmp){
         int [] statList = tmp.getStats();
@@ -1107,13 +1244,11 @@ public class GUI extends javax.swing.JFrame {
         lblTgh.setText("Toughness: " + statList[3]); 
         lblOneStats.setText("1-Handed: " + statList[4]);
         lblTwoStats.setText("2-Handed: " + statList[5]);
-        lblHackStats.setText("Hack: " + statList[6]);
-        lblStabStats.setText("Stab: " + statList[7]);
-        lblCrushStats.setText("Crush: " + statList[8]);
-        txfLvl.setText(Integer.toString(statList[9]));
-        txfExp.setText(Integer.toString(statList[10]));
-        txfHp.setText(Integer.toString(statList[11]));
-        txfGold.setText(Integer.toString(statList[12]));
+        lblHackStats.setText("Shield: " + statList[6]);
+        txfLvl.setText(Integer.toString(statList[7]));
+        txfExp.setText(Integer.toString(statList[8]));
+        txfHp.setText(Integer.toString(statList[9]));
+        txfGold.setText(Integer.toString(statList[10]));
         
     }
     /**
@@ -1170,16 +1305,11 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox cmbRing;
     private javax.swing.JComboBox cmbShield;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
@@ -1188,7 +1318,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTable jTableInv;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
@@ -1200,8 +1329,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblAgi;
     private javax.swing.JLabel lblArm;
     private javax.swing.JLabel lblChest;
-    private javax.swing.JLabel lblCrushStats;
     private javax.swing.JLabel lblExp;
+    private javax.swing.JLabel lblFeet;
+    private javax.swing.JLabel lblGearShield;
     private javax.swing.JLabel lblGladName;
     private javax.swing.JLabel lblGold;
     private javax.swing.JLabel lblHackStats;
@@ -1211,15 +1341,16 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblLegs;
     private javax.swing.JLabel lblLvl;
     private javax.swing.JLabel lblMetal;
+    private javax.swing.JLabel lblOneHanded;
     private javax.swing.JLabel lblOneStats;
     private javax.swing.JLabel lblRing;
     private javax.swing.JLabel lblRings;
     private javax.swing.JLabel lblShield;
     private javax.swing.JLabel lblSpd;
-    private javax.swing.JLabel lblStabStats;
     private javax.swing.JLabel lblStats;
     private javax.swing.JLabel lblStr;
     private javax.swing.JLabel lblTgh;
+    private javax.swing.JLabel lblTwoHanded;
     private javax.swing.JLabel lblTwoStats;
     private javax.swing.JLabel lblWepSkills;
     private javax.swing.JMenu menuFile;
@@ -1234,6 +1365,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel pnlArena;
     private javax.swing.JPanel pnlArmorMarket;
     private javax.swing.JPanel pnlCharacter;
+    private javax.swing.JPanel pnlGear;
     private javax.swing.JPanel pnlHero;
     private javax.swing.JPanel pnlMarketplace;
     private javax.swing.JPanel pnlShieldMarket;

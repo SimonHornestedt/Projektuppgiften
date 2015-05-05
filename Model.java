@@ -3,6 +3,7 @@ import java.io.*;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 
 public class Model {
@@ -24,12 +25,55 @@ public class Model {
                 BufferedWriter writer = new BufferedWriter(skrivFil1);
                 PrintWriter skrivFil = new PrintWriter(writer);
                 skrivFil.println(hero.statsToString());
+                skrivFil.println("INVENTORY");
+                    for(Weapon wep : hero.getWepInv()){
+                        skrivFil.println(wep.toSaveString());
+                    }
+                    for(Armor arm : hero.getArmInv()){
+                        skrivFil.println(arm.toSaveString());
+                    }
+                skrivFil.println("GEAR");
+                    for(Weapon wep : hero.getEquippedWep()){
+                        skrivFil.println(wep.toSaveString());
+                    }
+                    for(Armor arm : hero.getEquippedArmor()){
+                        skrivFil.println(arm.toSaveString());
+                    }
                 skrivFil.close();
                 System.out.println("funkade");
             }catch(IOException e){
                 System.out.println("funkade inte");
             }
         }
+    }
+    public void equipWeapon(String slot, String name){
+        
+        if("1-Handed".equals(slot) || "2-Handed".equals(slot) 
+                || "Shield".equals(slot)){
+            ArrayList <Weapon> wepInv = hero.getWepInv();
+            for(Weapon wep: wepInv){
+                if(wep.getName().equals(name)){
+                    hero.equipWeapon(wep, slot);
+                    break;
+                }
+            }
+        }else if("Chest".equals(slot) ||"Head".equals(slot) 
+                ||"Arm".equals(slot) ||"Legs".equals(slot) 
+                ||"Feet".equals(slot) || "Ring".equals(slot)){
+            ArrayList <Armor> armInv = hero.getArmInv();
+            for(Armor arm: armInv){
+                if(arm.getName().equals(name)){
+                    hero.equipArmor(arm, slot);
+                    break;
+                }
+            }
+        }
+    }
+    public void unequipWeapon(String slot){
+        hero.unequipWeapon(slot);
+    }
+    public void unequipArmor(String slot){
+        hero.unequipArmor(slot);
     }
     public void addWeapon(Weapon wep){
         if(hero.hasMoney(wep.getCost())){  
@@ -75,36 +119,109 @@ public class Model {
         return hero;
     }
     public Player loadHero(){
-        
         JFileChooser fc = new JFileChooser(System.getProperty("user.dir"));
-        
         fc.showDialog(null, "Choose Gladiator");
-        try{
-            
+        try{    
         String filnamn = fc.getSelectedFile().getName(); 
         if(filnamn.contains(".txt")){
             String s;
             try{
                 BufferedReader lasFil = new BufferedReader(new FileReader(filnamn));
                 s = lasFil.readLine();
-                int i = 0;
-                while(s != null){    
                 String [] posts = s.split(", ");
-                    switch(i){
-                        case 0:
-                            createHero(posts[0]);
-                            hero.setStats(posts);
-                        break;
-                        case 1:
-                            //För equipment
-                        break;
-                        case 2:
-                            //För inventory
-                        break;
-                    }
+                createHero(posts[0]);
+                hero.setStats(posts);
+                while(s != null){    
+                            if("INVENTORY".equals(s)){
+                                s = lasFil.readLine();
+                                while(!"GEAR".equals(s)){
+                                    posts = s.split(", ");
+                                    if("Cloth".equals(posts[0]) || "Leather".equals(posts[0]) || "Metal".equals(posts[0])|| "Ring".equals(posts[0])){
+                                        Armor arm;
+                                        switch (posts[0]){
+                                            case "Cloth":
+                                                arm = new Cloth("dummy");
+                                                hero.addArmor(arm.createArmor(Integer.parseInt(posts[1])));
+                                            break;
+                                            case "Leather":
+                                                arm = new Leather("dummy");
+                                                hero.addArmor(arm.createArmor(Integer.parseInt(posts[1])));
+                                            break;
+                                            case "Metal":
+                                                arm = new Metal("dummy");
+                                                hero.addArmor(arm.createArmor(Integer.parseInt(posts[1])));
+                                            break;
+                                            case "Ring":
+                                                arm = new Ring("dummy");
+                                                hero.addArmor(arm.createArmor(Integer.parseInt(posts[1])));
+                                            break;
+                                        }
+                                    }else if( "1-Handed".equals(posts[0]) || "2-Handed".equals(posts[0]) || "Shield".equals(posts[0]) ){
+                                         Weapon wep;
+                                        switch (posts[0]){
+                                            case "1-Handed":
+                                                wep = new OneHanded("dummy");
+                                                hero.addWeapon(wep.createWeapon(Integer.parseInt(posts[1])));
+                                            break;
+                                            case "2-Handed":
+                                                wep = new TwoHanded("dummy");
+                                                hero.addWeapon(wep.createWeapon(Integer.parseInt(posts[1])));
+                                            break;
+                                            case "Shield":
+                                                wep = new Shield("dummy");
+                                                hero.addWeapon(wep.createWeapon(Integer.parseInt(posts[1])));
+                                            break;
+                                            
+                                        }       
+                                    }
+                                    s = lasFil.readLine();
+                                }
+                            }
+                            if("GEAR".equals(s)){
+                                s = lasFil.readLine();
+                                while(s!= null){
+                                    posts = s.split(", ");
+                                    if("Cloth".equals(posts[0]) || "Leather".equals(posts[0]) || "Metal".equals(posts[0])|| "Ring".equals(posts[0])){
+                                        Armor arm;
+                                        switch (posts[0]){
+                                            case "Cloth":
+                                                arm = new Cloth("dummy");
+                                                hero.equipLoadedGear(arm.createArmor(Integer.parseInt(posts[1])));
+                                            break;
+                                            case "Leather":
+                                                arm = new Leather("dummy");
+                                                hero.equipLoadedGear(arm.createArmor(Integer.parseInt(posts[1])));
+                                            break;
+                                            case "Metal":
+                                                arm = new Metal("dummy");
+                                                hero.equipLoadedGear(arm.createArmor(Integer.parseInt(posts[1])));
+                                            break;
+                                            case "Ring":
+                                                arm = new Ring("dummy");
+                                                hero.equipLoadedGear(arm.createArmor(Integer.parseInt(posts[1])));
+                                            break;
+                                        }
+                                    }else if( "1-Handed".equals(posts[0]) || "2-Handed".equals(posts[0]) || "Shield".equals(posts[0]) ){
+                                        Weapon wep;
+                                        switch (posts[0]){
+                                            case "1-Handed":
+                                                wep = new OneHanded("dummy");
+                                                hero.equipLoadedWeapons(wep.createWeapon(Integer.parseInt(posts[1])));
+                                            break;
+                                            case "2-Handed":
+                                                wep = new TwoHanded("dummy");
+                                                hero.equipLoadedWeapons(wep.createWeapon(Integer.parseInt(posts[1])));
+                                            break;
+                                            case "Shield":
+                                                wep = new Shield("dummy");
+                                                hero.equipLoadedWeapons(wep.createWeapon(Integer.parseInt(posts[1])));
+                                            break;      
+                                        }       
+                                    }
+                                    s = lasFil.readLine();
+                                }
+                            }
                 s = lasFil.readLine();    
-                i++;
-                
                 }
             lasFil.close();
         }catch(IOException e){

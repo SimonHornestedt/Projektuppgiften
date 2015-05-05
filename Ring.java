@@ -2,19 +2,19 @@ public class Ring extends Armor{
 
     
     protected int speed, attack, defense, cost,weight;
-    protected String info, slot;
-    public Ring(String n, int attack, int defense, int speed, int weight, int cost, String info, String slot){
-        super(n,info);
+    protected String slot, id;
+    public Ring(String n, int attack, int defense, int speed, int weight, int cost,  String id ){
+        super(n);
         this.speed = speed;
         this.attack = attack;
         this.defense = defense;
         this.cost = cost;
         this.weight = weight;
-        this.info = info;
-        this.slot = slot;
+        this.id = id;
+        this.slot = "Ring";
     }
-    public Ring(String n,String info){
-        super(n, info);
+    public Ring(String n){
+        super(n);
         
         
     }
@@ -24,17 +24,17 @@ public class Ring extends Armor{
         return name + ", " + Integer.toString(weight) + ", " +  slot+ ", " + Integer.toString(attack)+ ", " + Integer.toString(speed) + ", " + Integer.toString(defense);
     }
     
-    public Ring createArmor(int i){
-        Ring arm;
+    public Armor createArmor(int i){
+        Armor arm;
         switch(i){
             case 1:
-                arm = new Ring("Signet of Speed", 20, 23, 45, 80, 60, "asdsdas", "Ring");
+                arm = new Ring("Signet of Speed", 20, 23, 45, 80, 60,  "1");
             break;
             case 2:
-                arm = new Ring("Legendary Amulet", 20, 23, 45, 80, 100, "asdsdas", "Ring");
+                arm = new Ring("Legendary Amulet", 20, 23, 45, 80, 100, "2");
             break;
             default:
-                arm = new Ring("Band of Pain", 23, 35, 20, 40, 30, "asdasd", "Ring");
+                arm = new Ring("Band of Pain", 23, 35, 20, 40, 30, "0");
             break;
         }
         return arm;
@@ -42,7 +42,7 @@ public class Ring extends Armor{
 
     @Override
     public String getInfo() {
-        return info;
+        return name;
     }
 
     @Override
@@ -52,6 +52,15 @@ public class Ring extends Armor{
     @Override
     public String getName() {
         return name;
+    }
+    @Override
+    public String getSlot() {
+        return slot;
+    }
+
+    @Override
+    public String toSaveString() {
+        return slot + ", " + id;
     }
     
 }

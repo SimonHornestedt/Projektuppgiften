@@ -11,19 +11,20 @@ public class Leather extends Armor{
 
     
     protected int speed, attack, defense, cost,weight;
-    protected String info, slot;
-    public Leather(String n, int attack, int speed, int weight, int cost, String info, String slot){
-        super(n,info);
+    protected String slot, id, type;
+    public Leather(String n, int attack, int speed, int weight, int cost,  String slot, String id){
+        super(n);
         this.speed = speed;
         this.attack = attack;
         this.defense = 0;
         this.cost = cost;
         this.weight = weight;
-        this.info = info;
+        this.type = "Leather";
+        this.id = id;
         this.slot = slot;
     }
-    public Leather(String n,String info){
-        super(n, info);
+    public Leather(String n){
+        super(n);
         
         
     }
@@ -33,23 +34,23 @@ public class Leather extends Armor{
         return name + ", " + Integer.toString(weight) + ", " +  slot+ ", " + Integer.toString(attack)+ ", " + Integer.toString(speed) + ", " + Integer.toString(defense);
     }
     
-    public Leather createArmor(int i ) {
-        Leather arm;
+    public Armor createArmor(int i ) {
+        Armor arm;
         switch(i){
             case 1:
-                arm = new Leather("Blackned Leather Chestguard", 20, 45, 80, 60, "Leather chestguard", "Chest");
+                arm = new Leather("Blackned Leather Chestguard", 20, 45, 80, 60, "Chest", "1");
             break;
             case 2:
-                arm = new Leather("Blackned Leather Armguard", 35, 20, 40, 30, "Leather armguard", "Arm");
+                arm = new Leather("Blackned Leather Armguard", 35, 20, 40, 30, "Arm", "2");
             break;
             case 3:
-                arm = new Leather("Blackned Leather Leggings", 45, 30, 50, 40, "Leather legguards", "Legs");
+                arm = new Leather("Blackned Leather Leggings", 45, 30, 50, 40, "Legs", "3");
             break;
             case 4:
-                arm = new Leather("Blackned Leather Shoes", 35, 20, 40, 30, "Leather shoes", "Feet");
+                arm = new Leather("Blackned Leather Shoes", 35, 20, 40, 30, "Feet", "4");
             break;
             default:
-                arm = new Leather("Blackned Leather Hood", 35, 20, 40, 30, "Leather headguard", "Head");
+                arm = new Leather("Blackned Leather Hood", 35, 20, 40, 30, "Head", "0");
             break;
         }
         return arm;
@@ -57,7 +58,7 @@ public class Leather extends Armor{
 
     @Override
     public String getInfo() {
-        return info;
+        return type +" "+  slot;
     }
 
     @Override
@@ -68,5 +69,13 @@ public class Leather extends Armor{
     public String getName() {
         return name;
     }
-    
+    @Override
+    public String getSlot() {
+        return slot;
+    }
+
+   @Override
+    public String toSaveString() {
+        return type + ", " + id;
+    }
 }

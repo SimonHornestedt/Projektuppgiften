@@ -9,35 +9,38 @@
  */
 public class Shield extends Weapon{
     protected int speed, attack, defense, cost, weight;
-    protected String info;
-    public Shield(String n, int attack, int defense,  int speed, int weight, int cost, String info){
-        super(n,info);
+    protected String info, slot, id;
+    public Shield(String n, int attack, int defense,  int speed, int weight, int cost, String info, String id){
+        super(n);
         this.speed = speed;
         this.attack = attack;
         this.defense = defense;
         this.cost = cost;
         this.weight = weight;
         this.info = info;
+        this.slot = "Shield";
+        this.id = id;
         
     }
-    public Shield(String n,String info){
-        super(n, info);
+    public Shield(String n){
+        super(n);
         
         
     }
     
     @Override
     public String toString() {
-        return name + ", " + Integer.toString(weight) + ", " + "Shield"+ ", " + Integer.toString(attack)+ ", " + Integer.toString(speed) + ", " + Integer.toString(defense);
+        return name + ", " + Integer.toString(weight) + ", " + slot+ ", " + Integer.toString(attack)+ ", " + Integer.toString(speed) + ", " + Integer.toString(defense);
     }
-    public Shield createWeapon(int i ) {
-        Shield wep;
+    @Override
+    public Weapon createWeapon(int i ) {
+        Weapon wep;
         switch(i){
             case 1:
-                wep = new Shield("Roman Shield", 20, 45, 23, 80, 60, "asdsdas");
+                wep = new Shield("Roman Shield", 20, 45, 23, 80, 60, "asdsdas", "1");
             break;
             default:
-                wep = new Shield("Round Shield", 35, 20, 23, 40, 30, "asdasd");
+                wep = new Shield("Round Shield", 35, 20, 23, 40, 30, "asdasd", "0");
             break;
         }
         return wep;
@@ -54,5 +57,20 @@ public class Shield extends Weapon{
     @Override
     public String getName() {
         return name;
+    }
+    @Override
+    public int[] getStats() {
+        int[] stats = new int[]{attack, speed, weight};
+        return stats;
+    }
+
+    @Override
+    public String getSlot() {
+        return slot;
+    }
+    
+    @Override
+    public String toSaveString() {
+        return slot + ", " + id;
     }
 }

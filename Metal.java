@@ -11,19 +11,20 @@ public class Metal extends Armor{
 
     
     protected int speed, attack, defense, cost,weight;
-    protected String info, slot;
-    public Metal(String n, int attack, int speed, int weight, int cost, String info, String slot){
-        super(n,info);
+    protected String id, slot, type;
+    public Metal(String n, int attack, int speed, int weight, int cost, String slot , String id){
+        super(n);
         this.speed = speed;
         this.attack = attack;
         this.defense = 0;
         this.cost = cost;
         this.weight = weight;
-        this.info = info;
+        this.id = id;
+        this.type = "Metal";
         this.slot = slot;
     }
-    public Metal(String n,String info){
-        super(n, info);
+    public Metal(String n){
+        super(n);
         
         
     }
@@ -33,23 +34,23 @@ public class Metal extends Armor{
         return name + ", " + Integer.toString(weight) + ", " +  slot+ ", " + Integer.toString(attack)+ ", " + Integer.toString(speed) + ", " + Integer.toString(defense);
     }
     
-    public Metal createArmor(int i ) {
-        Metal arm;
+    public Armor createArmor(int i ) {
+        Armor arm;
         switch(i){
             case 1:
-                arm = new Metal("Blackned Chestguard", 20, 45, 80, 60, "asdsdas", "Chest");
+                arm = new Metal("Plated Chestpiece", 20, 45, 80, 60,  "Chest",  "1");
             break;
             case 2:
-                arm = new Metal("Blackned Armguard", 35, 20, 40, 30, "asdasdasd", "Arm");
+                arm = new Metal("Plated Pauldrons", 35, 20, 40, 30,  "Arm",  "2");
             break;
             case 3:
-                arm = new Metal("Blackned Leggings", 45, 30, 50, 40, "asdad", "Legs");
+                arm = new Metal("Iron Leggings", 45, 30, 50, 40, "Legs", "3");
             break;
             case 4:
-                arm = new Metal("Blackned Shoes", 35, 20, 40, 30, "asda", "Feet");
+                arm = new Metal("Hardned Metal Shoes", 35, 20, 40, 30, "Feet", "4");
             break;
             default:
-                arm = new Metal("Blackned Hood", 35, 20, 40, 30, "asdasd", "Head");
+                arm = new Metal("Horned Iron Helm", 35, 20, 40, 30,  "Head" , "0");
             break;
         }
         return arm;
@@ -57,7 +58,7 @@ public class Metal extends Armor{
 
     @Override
     public String getInfo() {
-        return info;
+        return type + " " + slot;
     }
 
     @Override
@@ -67,6 +68,15 @@ public class Metal extends Armor{
     @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String getSlot() {
+        return slot;
+    }
+    @Override
+    public String toSaveString() {
+        return type + ", " + id;
     }
     
 }
