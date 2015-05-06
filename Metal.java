@@ -12,11 +12,11 @@ public class Metal extends Armor{
     
     protected int speed, attack, defense, cost,weight;
     protected String id, slot, type;
-    public Metal(String n, int attack, int speed, int weight, int cost, String slot , String id){
+    public Metal(String n, int defense,  int weight, int cost, String slot , String id){
         super(n);
         this.speed = speed;
-        this.attack = attack;
-        this.defense = 0;
+        this.attack = 0;
+        this.defense = defense;
         this.cost = cost;
         this.weight = weight;
         this.id = id;
@@ -38,19 +38,19 @@ public class Metal extends Armor{
         Armor arm;
         switch(i){
             case 1:
-                arm = new Metal("Plated Chestpiece", 20, 45, 80, 60,  "Chest",  "1");
+                arm = new Metal("Plated Chestpiece", 20,  80, 60,  "Chest",  "1");
             break;
             case 2:
-                arm = new Metal("Plated Pauldrons", 35, 20, 40, 30,  "Arm",  "2");
+                arm = new Metal("Plated Pauldrons", 35, 40, 30,  "Arm",  "2");
             break;
             case 3:
-                arm = new Metal("Iron Leggings", 45, 30, 50, 40, "Legs", "3");
+                arm = new Metal("Iron Leggings", 45,  50, 40, "Legs", "3");
             break;
             case 4:
-                arm = new Metal("Hardned Metal Shoes", 35, 20, 40, 30, "Feet", "4");
+                arm = new Metal("Hardned Metal Shoes", 35, 40, 30, "Feet", "4");
             break;
             default:
-                arm = new Metal("Horned Iron Helm", 35, 20, 40, 30,  "Head" , "0");
+                arm = new Metal("Horned Iron Helm", 35, 40, 30,  "Head" , "0");
             break;
         }
         return arm;

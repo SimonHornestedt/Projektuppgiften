@@ -300,7 +300,7 @@ public class Player extends Character{
         ringEquiped,
         shieldEquiped,
         twoEquiped,
-        oneEquiped,};
+        oneEquiped};
         return equipped;
     }
     public void setBaseStats(){
@@ -318,15 +318,18 @@ public class Player extends Character{
         baseStats.add(dmg);
     }
     
-    public void addWeapon(Weapon wep){
+    public void addWeapon(Weapon wep, boolean loading){
         wepInventory.add(wep);
+        if(!loading){
         gold -= wep.getCost();
-        System.out.println("Guld använt och vapen köpt");
+        }
     }
-    public void addArmor(Armor arm){
+    public void addArmor(Armor arm, boolean loading){
         armorInventory.add(arm);
+        if(!loading){
         gold -= arm.getCost();
-        System.out.println("Guld använt och armor köpt");
+        }
+        
     }
     public int getGold(){
         return gold;

@@ -12,11 +12,11 @@ public class Cloth extends Armor{
     
     protected int speed, attack, defense, cost,weight;
     protected String  slot, type, id;
-    public Cloth(String n, int attack, int speed, int weight, int cost, String slot, String id){
+    public Cloth(String n, int defense, int speed, int weight, int cost, String slot, String id){
         super(n);
         this.speed = speed;
-        this.attack = attack;
-        this.defense = 0;
+        this.attack = 0;
+        this.defense = defense;
         this.cost = cost;
         this.weight = weight;
         this.type = "Cloth";
@@ -34,23 +34,24 @@ public class Cloth extends Armor{
         return name + ", " + Integer.toString(weight) + ", " + slot + ", " + Integer.toString(attack)+ ", " + Integer.toString(speed) + ", " + Integer.toString(defense);
     }
     
+    @Override
     public Armor createArmor(int i ) {
         Armor arm;
         switch(i){
             case 1:
-                arm = new Cloth("Wool Bandages", 20, 45, 80, 60, "Chest" , "1");
+                arm = new Cloth("Wool Bandages", 5, 30, 5, 10, "Chest" , "1");
             break;
             case 2:
-                arm = new Cloth("Worn Bracelet", 35, 20, 40, 30, "Arm", "2");
+                arm = new Cloth("Worn Bracelet", 5, 20, 10, 10, "Arm", "2");
             break;
             case 3:
-                arm = new Cloth("Trousers", 45, 30, 50, 40, "Legs", "3");
+                arm = new Cloth("Trousers", 10, 30, 50, 20, "Legs", "3");
             break;
             case 4:
-                arm = new Cloth("Mudstained Wrappings", 35, 20, 40, 30, "Feet", "4");
+                arm = new Cloth("Mudstained Wrappings", 5, 20, 10, 30, "Feet", "4");
             break;
             default:
-                arm = new Cloth("Bloodstained Headband", 35, 20, 40, 30, "Head", "0");
+                arm = new Cloth("Bloodstained Headband", 5, 45, 15, 45, "Head", "0");
             break;
         }
         return arm;

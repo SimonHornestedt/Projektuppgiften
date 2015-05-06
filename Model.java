@@ -9,9 +9,9 @@ import javax.swing.JPanel;
 public class Model {
     
     Player hero;
-    
+    boolean loading;
     public Model(){
-        
+        loading = false;
     }
     public Player createHero(String heroName){
         hero = new Player(heroName);
@@ -77,7 +77,7 @@ public class Model {
     }
     public void addWeapon(Weapon wep){
         if(hero.hasMoney(wep.getCost())){  
-            hero.addWeapon(wep);
+            hero.addWeapon(wep,loading);
         }else{
             JOptionPane.showMessageDialog(null, "You don't have enough"
                     + " money to buy that!");
@@ -107,9 +107,10 @@ public class Model {
         
         return str;
     }
+    
     public void addArmor(Armor arm){
         if(hero.hasMoney(arm.getCost())){  
-            hero.addArmor(arm);
+            hero.addArmor(arm, loading);
         }else{
             JOptionPane.showMessageDialog(null, "You don't have enough money to buy that!");
         }
@@ -119,14 +120,16 @@ public class Model {
         return hero;
     }
     public Player loadHero(){
-        JFileChooser fc = new JFileChooser(System.getProperty("user.dir"));
+        loading = true;
+        JFileChooser fc = new JFileChooser(System.getProperty("user.dir") +"\\gladiator");
         fc.showDialog(null, "Choose Gladiator");
         try{    
         String filnamn = fc.getSelectedFile().getName(); 
+        System.out.println(filnamn);
         if(filnamn.contains(".txt")){
             String s;
             try{
-                BufferedReader lasFil = new BufferedReader(new FileReader(filnamn));
+                BufferedReader lasFil = new BufferedReader(new FileReader("gladiator\\"+filnamn));
                 s = lasFil.readLine();
                 String [] posts = s.split(", ");
                 createHero(posts[0]);
@@ -141,19 +144,19 @@ public class Model {
                                         switch (posts[0]){
                                             case "Cloth":
                                                 arm = new Cloth("dummy");
-                                                hero.addArmor(arm.createArmor(Integer.parseInt(posts[1])));
+                                                hero.addArmor(arm.createArmor(Integer.parseInt(posts[1])),loading);
                                             break;
                                             case "Leather":
                                                 arm = new Leather("dummy");
-                                                hero.addArmor(arm.createArmor(Integer.parseInt(posts[1])));
+                                                hero.addArmor(arm.createArmor(Integer.parseInt(posts[1])),loading);
                                             break;
                                             case "Metal":
                                                 arm = new Metal("dummy");
-                                                hero.addArmor(arm.createArmor(Integer.parseInt(posts[1])));
+                                                hero.addArmor(arm.createArmor(Integer.parseInt(posts[1])),loading);
                                             break;
                                             case "Ring":
                                                 arm = new Ring("dummy");
-                                                hero.addArmor(arm.createArmor(Integer.parseInt(posts[1])));
+                                                hero.addArmor(arm.createArmor(Integer.parseInt(posts[1])), loading);
                                             break;
                                         }
                                     }else if( "1-Handed".equals(posts[0]) || "2-Handed".equals(posts[0]) || "Shield".equals(posts[0]) ){
@@ -161,15 +164,15 @@ public class Model {
                                         switch (posts[0]){
                                             case "1-Handed":
                                                 wep = new OneHanded("dummy");
-                                                hero.addWeapon(wep.createWeapon(Integer.parseInt(posts[1])));
+                                                hero.addWeapon(wep.createWeapon(Integer.parseInt(posts[1])),loading);
                                             break;
                                             case "2-Handed":
                                                 wep = new TwoHanded("dummy");
-                                                hero.addWeapon(wep.createWeapon(Integer.parseInt(posts[1])));
+                                                hero.addWeapon(wep.createWeapon(Integer.parseInt(posts[1])),loading);
                                             break;
                                             case "Shield":
                                                 wep = new Shield("dummy");
-                                                hero.addWeapon(wep.createWeapon(Integer.parseInt(posts[1])));
+                                                hero.addWeapon(wep.createWeapon(Integer.parseInt(posts[1])),loading);
                                             break;
                                             
                                         }       
@@ -225,12 +228,14 @@ public class Model {
                 }
             lasFil.close();
         }catch(IOException e){
-            JOptionPane.showMessageDialog(null, "You didn't pick a valid file");
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, " You didn't pick a valid file 1");
         }
         }
         }catch(NullPointerException e){
-               JOptionPane.showMessageDialog(null, "You didn't pick a valid file");
+            JOptionPane.showMessageDialog(null, "You didn't pick a valid file 2");
         }
+        loading = false;
         return hero;
      }
     

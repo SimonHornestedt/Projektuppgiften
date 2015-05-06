@@ -28,13 +28,13 @@ public class Ring extends Armor{
         Armor arm;
         switch(i){
             case 1:
-                arm = new Ring("Signet of Speed", 20, 23, 45, 80, 60,  "1");
+                arm = new Ring("Signet of Speed", 0, 0, 75, 5, 80,  "1");
             break;
             case 2:
-                arm = new Ring("Legendary Amulet", 20, 23, 45, 80, 100, "2");
+                arm = new Ring("Legendary Amulet", 80, 80, 80, 10, 2000, "2");
             break;
             default:
-                arm = new Ring("Band of Pain", 23, 35, 20, 40, 30, "0");
+                arm = new Ring("Band of Pain", 60, 0, 0, 10, 80, "0");
             break;
         }
         return arm;

@@ -4,9 +4,9 @@ public class OneHanded extends Weapon{
     protected int speed, attack, defense, cost,weight;
     protected String info, slot, id;
     
-    public OneHanded(String n, int attack, int speed, int weight, int cost, String info, String id){
+    public OneHanded(String n, int attack,  int weight, int cost, String info, String id){
         super(n);
-        this.speed = speed;
+        this.speed = (int)(100/weight);
         this.attack = attack;
         this.defense = 0;
         this.cost = cost;
@@ -30,22 +30,22 @@ public class OneHanded extends Weapon{
         Weapon wep;
         switch(i){
             case 1:
-                wep = new OneHanded("Small Basic Mace", 10, -5, 10, 50, "asdad", "1");
+                wep = new OneHanded("Small Basic Mace", 10,  25, 100, "asdad", "1");
             break;
             case 2:
-                wep = new OneHanded("Basic Dagger", 35, 20, 40, 50, "asdasd", "2");
+                wep = new OneHanded("Basic Dagger", 10, 5, 100, "asdasd", "2");
             break;
             case 3:
-                wep = new OneHanded("Shadowmourne", 45, 30, 50, 40, "asdad","3");
+                wep = new OneHanded("Shadowmourne", 35,  40, 300, "asdad","3");
             break;
             case 4:
-                wep = new OneHanded("Angmar", 35, 20, 40, 30, "asda", "4");
+                wep = new OneHanded("Angmar", 60,  190, 300, "asda", "4");
             break;
             case 5:
-                wep = new OneHanded("Fangs of the Father", 35, 20, 40, 30, "asdadad", "5");
+                wep = new OneHanded("Fangs of the Father", 35,  25, 300, "asdadad", "5");
             break;
             default:
-                wep = new OneHanded("Basic Axe", 35, 20, 40, 30, "asdasd", "0");
+                wep = new OneHanded("Basic Axe", 20, 15, 100, "asdasd", "0");
             break;
         }
         return wep;

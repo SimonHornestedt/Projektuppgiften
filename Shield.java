@@ -10,10 +10,10 @@
 public class Shield extends Weapon{
     protected int speed, attack, defense, cost, weight;
     protected String info, slot, id;
-    public Shield(String n, int attack, int defense,  int speed, int weight, int cost, String info, String id){
+    public Shield(String n,  int defense,  int weight, int cost, String info, String id){
         super(n);
-        this.speed = speed;
-        this.attack = attack;
+        this.speed = (int)(weight * 0.2);
+        this.attack = 0;
         this.defense = defense;
         this.cost = cost;
         this.weight = weight;
@@ -37,10 +37,10 @@ public class Shield extends Weapon{
         Weapon wep;
         switch(i){
             case 1:
-                wep = new Shield("Roman Shield", 20, 45, 23, 80, 60, "asdsdas", "1");
+                wep = new Shield("Roman Shield", 120, 200, 400, "asdsdas", "1");
             break;
             default:
-                wep = new Shield("Round Shield", 35, 20, 23, 40, 30, "asdasd", "0");
+                wep = new Shield("Round Shield", 70, 100, 80, "asdasd", "0");
             break;
         }
         return wep;

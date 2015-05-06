@@ -12,11 +12,11 @@ public class Leather extends Armor{
     
     protected int speed, attack, defense, cost,weight;
     protected String slot, id, type;
-    public Leather(String n, int attack, int speed, int weight, int cost,  String slot, String id){
+    public Leather(String n, int defense, int speed, int weight, int cost,  String slot, String id){
         super(n);
         this.speed = speed;
-        this.attack = attack;
-        this.defense = 0;
+        this.attack = 0;
+        this.defense = defense;
         this.cost = cost;
         this.weight = weight;
         this.type = "Leather";
