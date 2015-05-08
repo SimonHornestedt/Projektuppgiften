@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+
 
 
 public class Model {
@@ -123,7 +123,7 @@ public class Model {
         loading = true;
         JFileChooser fc = new JFileChooser(System.getProperty("user.dir") +"\\gladiator");
         fc.showDialog(null, "Choose Gladiator");
-        try{    
+//        try{    
         String filnamn = fc.getSelectedFile().getName(); 
         System.out.println(filnamn);
         if(filnamn.contains(".txt")){
@@ -232,9 +232,9 @@ public class Model {
             JOptionPane.showMessageDialog(null, " You didn't pick a valid file 1");
         }
         }
-        }catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, "You didn't pick a valid file 2");
-        }
+//        }catch(NullPointerException e){
+//            JOptionPane.showMessageDialog(null, "You didn't pick a valid file 2");
+//        }
         loading = false;
         return hero;
      }

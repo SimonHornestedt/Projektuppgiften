@@ -28,13 +28,13 @@ public class Ring extends Armor{
         Armor arm;
         switch(i){
             case 1:
-                arm = new Ring("Signet of Speed", 0, 0, 75, 5, 80,  "1");
+                arm = new Ring("Signet of Speed", 0, 0, 40, 0, 80,  "1");
             break;
             case 2:
-                arm = new Ring("Legendary Amulet", 80, 80, 80, 10, 2000, "2");
+                arm = new Ring("Legendary Amulet", 10, 10, 50, 0, 2000, "2");
             break;
             default:
-                arm = new Ring("Band of Pain", 60, 0, 0, 10, 80, "0");
+                arm = new Ring("Band of Pain", 60, 0, 0, 0, 80, "0");
             break;
         }
         return arm;
@@ -61,6 +61,10 @@ public class Ring extends Armor{
     @Override
     public String toSaveString() {
         return slot + ", " + id;
+    }
+    @Override
+    public int getDefense() {
+        return defense;
     }
     
 }

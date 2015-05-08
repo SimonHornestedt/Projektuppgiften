@@ -3,8 +3,9 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 
-public class Player extends Character{
-    private int agi, str, spd, thg, onehand, twohand, shield, lvl, exp, HP, gold, dmg;
+public class Player extends Character implements Comparable{
+    private int agi, str, spd, thg, onehand, twohand, shield, lvl, exp, HP, gold, dmg, defense, attack, wepSkill;
+    private double crit, abs ,miss;
     ArrayList <Armor> armorInventory;
     ArrayList <Weapon> wepInventory;
     boolean headEquiped,chestEquiped,armEquiped,legsEquiped,feetEquiped,ringEquiped,shieldEquiped,twoEquiped,oneEquiped;
@@ -15,7 +16,6 @@ public class Player extends Character{
     
     public Player(String n){
         super(n);
-        dmg = (int)((str*0.80) + (agi*0.5));
         agi = 10;
         str = 10;
         spd = 10;
@@ -25,7 +25,7 @@ public class Player extends Character{
         shield = 10;
         lvl = 1;
         exp = 0;
-        HP = (int) (thg*1.5);
+        HP = (int) (thg*1.2);
         gold = 200;        
         headEquiped = false;
         chestEquiped = false;
@@ -41,10 +41,47 @@ public class Player extends Character{
         equippedWep = new ArrayList <>();
         equippedArmor = new ArrayList <>();
         baseStats = new ArrayList <>();
-        setBaseStats();
+        defense = this.calcDef();
+        attack = this.calcAtk();
+        abs = defense*0.2;
+        wepSkill = this.calcWepSkill();
+        miss = 100/wepSkill;
+        dmg = (int)((str*0.80) + (agi*0.5) + attack + wepSkill);
+        crit = (int)(agi + spd *0.1);
+        
     }
-    @Override
-    public Character getCharacters(String n) {
+    private int calcDef(){
+        int def = 0;
+        if(!equippedArmor.isEmpty()){
+            for(Armor arm : equippedArmor){
+                int tmp = arm.getDefense();
+                def += tmp;
+            }
+        }
+        return def;
+    }
+    
+    private int calcAtk(){
+        int atk = 0;
+        if(!equippedWep.isEmpty()){
+            for(Weapon wep : equippedWep){
+                int tmp = wep.getAttack();
+                atk += tmp;
+            }
+        }
+        return atk;
+    }
+    private int calcWepSkill(){
+        int wS = 10;
+        if(oneEquiped){
+            wS = onehand;
+        }else if(twoEquiped){
+            wS = twohand;
+        }
+        return wS;
+    }
+        
+    public Character getCharacters() {
         return this;
     }
 
@@ -82,6 +119,7 @@ public class Player extends Character{
                             equippedWep.remove(wep);
                             equippedWep.add(w);
                             System.out.println("A onehanded has been replaced");
+                            break;
                         }
                     }
                 }
@@ -101,6 +139,7 @@ public class Player extends Character{
                             equippedWep.remove(wep);
                             equippedWep.add(w);
                             System.out.println("A twohanded has been replaced");
+                            break;
                         }
                     }
                 }
@@ -120,13 +159,15 @@ public class Player extends Character{
                             equippedWep.remove(wep);
                             equippedWep.add(w);
                             System.out.println("A shield has been replaced");
+                            break;
                         }
                     }
                 }
             break;
                 
         }
-        this.calcStats();
+        updateStats();
+        
     }
     public void equipArmor(Armor a, String slot){
         
@@ -237,7 +278,7 @@ public class Player extends Character{
             break;
                 
         }
-        this.calcStats();
+        updateStats();
     }
     public void unequipWeapon(String slot){
                     for(Weapon wep : equippedWep){
@@ -288,9 +329,7 @@ public class Player extends Character{
                     }
                     
     }
-    public void calcStats(){
-        
-    }
+    
     public boolean [] getEquipped(){
         boolean [] equipped = new boolean []{headEquiped,
         chestEquiped,
@@ -303,20 +342,10 @@ public class Player extends Character{
         oneEquiped};
         return equipped;
     }
-    public void setBaseStats(){
-        baseStats.add(agi);
-        baseStats.add(str);
-        baseStats.add(spd);
-        baseStats.add(thg);
-        baseStats.add(onehand);
-        baseStats.add(twohand);
-        baseStats.add(shield);
-        baseStats.add(lvl);
-        baseStats.add(exp);
-        baseStats.add(HP);
-        baseStats.add(gold);
-        baseStats.add(dmg);
+    public void updateStats(){
+        
     }
+    
     
     public void addWeapon(Weapon wep, boolean loading){
         wepInventory.add(wep);
@@ -343,7 +372,7 @@ public class Player extends Character{
     public ArrayList <Integer> getBaseStats(){
         return baseStats;
     }
-    @Override
+    
     public int[] getStats(){
         int[] statList = new int[]{agi, str, spd, thg, onehand, twohand, shield, lvl, exp, HP, gold};
         return statList;
@@ -356,7 +385,7 @@ public class Player extends Character{
         }
        
     }
-    @Override
+    
     public void setStats(String[] posts) {
         for(int i = 1; i < posts.length; i++){
             //System.out.println(posts[i]);
@@ -424,6 +453,15 @@ public class Player extends Character{
     @Override
     public String toString() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isAlive() {
+        if(HP <= 0){
+            return false;
+        }else{
+            return true;
+        }  
     }
 
     

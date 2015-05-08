@@ -32,22 +32,22 @@ public class TwoHanded extends Weapon{
         Weapon wep;
         switch(i){
             case 1:
-                wep = new TwoHanded("Basic Mace", 35,  120, 180, "asdada", "1");
+                wep = new TwoHanded("Basic Mace", 5,  10, 180, "asdada", "1");
             break;
             case 2:
-                wep = new TwoHanded("Basic Spear", 20, 40, 180, "asdada", "2");
+                wep = new TwoHanded("Basic Spear", 3, 4, 180, "asdada", "2");
             break;
             case 3:
-                wep = new TwoHanded("Frostmourne", 50, 70, 400, "asdada", "3");
+                wep = new TwoHanded("Frostmourne", 18, 10, 2000, "asdada", "3");
             break;
             case 4:
-                wep = new TwoHanded("Sulfuras", 90, 250, 420, "asdada", "4");
+                wep = new TwoHanded("Sulfuras", 20, 1, 100000, "asdada", "4");
             break;
             case 5:
-                wep = new TwoHanded("Dragon Glavie", 45, 60, 400, "asdada", "5");
+                wep = new TwoHanded("Dragon Glavie", 15, 1, 2000, "asdada", "5");
             break;
             default:
-                wep = new TwoHanded("Basic Sword", 30, 55, 180, "asdada", "0");
+                wep = new TwoHanded("Basic Sword", 4, 5, 180, "asdada", "0");
             break;
         }
         return wep;
@@ -82,5 +82,9 @@ public class TwoHanded extends Weapon{
     @Override
     public String toSaveString() {
         return slot + ", " + id;
+    }
+    @Override
+    public int getAttack() {
+        return attack;
     }
 }

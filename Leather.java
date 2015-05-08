@@ -12,9 +12,9 @@ public class Leather extends Armor{
     
     protected int speed, attack, defense, cost,weight;
     protected String slot, id, type;
-    public Leather(String n, int defense, int speed, int weight, int cost,  String slot, String id){
+    public Leather(String n, int defense,  int weight, int cost,  String slot, String id){
         super(n);
-        this.speed = speed;
+        this.speed = (int)(100/weight);
         this.attack = 0;
         this.defense = defense;
         this.cost = cost;
@@ -38,19 +38,19 @@ public class Leather extends Armor{
         Armor arm;
         switch(i){
             case 1:
-                arm = new Leather("Blackned Leather Chestguard", 20, 45, 80, 60, "Chest", "1");
+                arm = new Leather("Blackned Leather Chestguard", 4,  4, 250, "Chest", "1");
             break;
             case 2:
-                arm = new Leather("Blackned Leather Armguard", 35, 20, 40, 30, "Arm", "2");
+                arm = new Leather("Blackned Leather Armguard", 2, 2, 180, "Arm", "2");
             break;
             case 3:
-                arm = new Leather("Blackned Leather Leggings", 45, 30, 50, 40, "Legs", "3");
+                arm = new Leather("Blackned Leather Leggings", 3, 3, 230, "Legs", "3");
             break;
             case 4:
-                arm = new Leather("Blackned Leather Shoes", 35, 20, 40, 30, "Feet", "4");
+                arm = new Leather("Blackned Leather Shoes", 2, 2, 180, "Feet", "4");
             break;
             default:
-                arm = new Leather("Blackned Leather Hood", 35, 20, 40, 30, "Head", "0");
+                arm = new Leather("Blackned Leather Hood", 3,  2, 220, "Head", "0");
             break;
         }
         return arm;
@@ -77,5 +77,9 @@ public class Leather extends Armor{
    @Override
     public String toSaveString() {
         return type + ", " + id;
+    }
+    @Override
+    public int getDefense() {
+        return defense;
     }
 }

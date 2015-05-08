@@ -14,7 +14,7 @@ public class Metal extends Armor{
     protected String id, slot, type;
     public Metal(String n, int defense,  int weight, int cost, String slot , String id){
         super(n);
-        this.speed = speed;
+        this.speed = (int)(100/weight);
         this.attack = 0;
         this.defense = defense;
         this.cost = cost;
@@ -38,19 +38,19 @@ public class Metal extends Armor{
         Armor arm;
         switch(i){
             case 1:
-                arm = new Metal("Plated Chestpiece", 20,  80, 60,  "Chest",  "1");
+                arm = new Metal("Plated Chestpiece", 5, 6, 800,  "Chest",  "1");
             break;
             case 2:
-                arm = new Metal("Plated Pauldrons", 35, 40, 30,  "Arm",  "2");
+                arm = new Metal("Plated Pauldrons", 3, 5, 300,  "Arm",  "2");
             break;
             case 3:
-                arm = new Metal("Iron Leggings", 45,  50, 40, "Legs", "3");
+                arm = new Metal("Iron Leggings", 4,  5, 450, "Legs", "3");
             break;
             case 4:
-                arm = new Metal("Hardned Metal Shoes", 35, 40, 30, "Feet", "4");
+                arm = new Metal("Hardned Metal Shoes", 3, 5, 300, "Feet", "4");
             break;
             default:
-                arm = new Metal("Horned Iron Helm", 35, 40, 30,  "Head" , "0");
+                arm = new Metal("Horned Iron Helm", 6, 5, 900,  "Head" , "0");
             break;
         }
         return arm;
@@ -78,5 +78,11 @@ public class Metal extends Armor{
     public String toSaveString() {
         return type + ", " + id;
     }
+    @Override
+    public int getDefense() {
+        return defense;
+    }
+
+    
     
 }

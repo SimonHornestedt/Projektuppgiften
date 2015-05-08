@@ -14,4 +14,5 @@ public abstract class Weapon {
     public abstract String getSlot();
     public abstract String toSaveString();
     public abstract Weapon createWeapon(int i);
+    public abstract int getAttack();
 }

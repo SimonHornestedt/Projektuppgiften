@@ -33,16 +33,16 @@ public class OneHanded extends Weapon{
                 wep = new OneHanded("Small Basic Mace", 10,  25, 100, "asdad", "1");
             break;
             case 2:
-                wep = new OneHanded("Basic Dagger", 10, 5, 100, "asdasd", "2");
+                wep = new OneHanded("Basic Dagger", 10, 3, 100, "asdasd", "2");
             break;
             case 3:
-                wep = new OneHanded("Shadowmourne", 35,  40, 300, "asdad","3");
+                wep = new OneHanded("Shadowmourne", 35,  5, 300, "asdad","3");
             break;
             case 4:
-                wep = new OneHanded("Angmar", 60,  190, 300, "asda", "4");
+                wep = new OneHanded("Angmar", 60,  20, 300, "asda", "4");
             break;
             case 5:
-                wep = new OneHanded("Fangs of the Father", 35,  25, 300, "asdadad", "5");
+                wep = new OneHanded("Fangs of the Father", 35,  1, 300, "asdadad", "5");
             break;
             default:
                 wep = new OneHanded("Basic Axe", 20, 15, 100, "asdasd", "0");
@@ -80,6 +80,10 @@ public class OneHanded extends Weapon{
     @Override
     public String toSaveString() {
         return slot + ", " + id;
+    }
+    @Override
+    public int getAttack() {
+        return attack;
     }
     
 }

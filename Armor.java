@@ -9,6 +9,7 @@
     }
     public abstract String getInfo();
     public abstract int getCost();
+    public abstract int getDefense();
     public abstract String toString();
     public abstract String getName();
     public abstract String getSlot();

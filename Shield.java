@@ -12,7 +12,7 @@ public class Shield extends Weapon{
     protected String info, slot, id;
     public Shield(String n,  int defense,  int weight, int cost, String info, String id){
         super(n);
-        this.speed = (int)(weight * 0.2);
+        this.speed = (int)(100/weight);
         this.attack = 0;
         this.defense = defense;
         this.cost = cost;
@@ -37,10 +37,10 @@ public class Shield extends Weapon{
         Weapon wep;
         switch(i){
             case 1:
-                wep = new Shield("Roman Shield", 120, 200, 400, "asdsdas", "1");
+                wep = new Shield("Roman Shield", 10, 10, 400, "asdsdas", "1");
             break;
             default:
-                wep = new Shield("Round Shield", 70, 100, 80, "asdasd", "0");
+                wep = new Shield("Round Shield", 4, 5, 80, "asdasd", "0");
             break;
         }
         return wep;
@@ -72,5 +72,9 @@ public class Shield extends Weapon{
     @Override
     public String toSaveString() {
         return slot + ", " + id;
+    }
+    @Override
+    public int getAttack() {
+        return attack;
     }
 }
