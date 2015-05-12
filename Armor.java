@@ -10,11 +10,12 @@
     public abstract String getInfo();
     public abstract int getCost();
     public abstract int getDefense();
+    public abstract int getSpd();
     public abstract String toString();
     public abstract String getName();
     public abstract String getSlot();
     public abstract String toSaveString();
     public abstract Armor createArmor(int i);
-    
+    public abstract int getLvlReq();
 }
 

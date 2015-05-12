@@ -4,12 +4,14 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 
 
-public class Player extends Character implements Comparable{
-    private int agi, str, spd, thg, onehand, twohand, shield, lvl, exp, HP, gold, dmg, defense, attack, wepSkill;
-    private double crit, abs ,miss;
+public class Player extends Character{
+    private int agi, str, spd, thg, onehand, twohand, shield, lvl, exp, HP, 
+            gold, dmg, defense, attack, wepSkill,crit, abs ,miss, baseHP, baseSpd;
+   
     ArrayList <Armor> armorInventory;
     ArrayList <Weapon> wepInventory;
-    boolean headEquiped,chestEquiped,armEquiped,legsEquiped,feetEquiped,ringEquiped,shieldEquiped,twoEquiped,oneEquiped;
+    boolean headEquiped,chestEquiped,armEquiped,legsEquiped,
+            feetEquiped,ringEquiped,shieldEquiped,twoEquiped,oneEquiped;
     ArrayList <Integer> baseStats;
     ArrayList <Weapon> equippedWep;
     ArrayList <Armor> equippedArmor;
@@ -19,14 +21,15 @@ public class Player extends Character implements Comparable{
         super(n);
         agi = 10;
         str = 10;
-        spd = 10;
+        baseSpd = 10;
         thg = 10;
         onehand = 10;
         twohand = 10;
         shield = 10;
         lvl = 1;
         exp = 0;
-        HP = (int) (thg*1.2);
+        HP = (int) (thg*1.2) ;
+        baseHP = (int) (thg*1.2);
         gold = 200;        
         headEquiped = false;
         chestEquiped = false;
@@ -44,19 +47,78 @@ public class Player extends Character implements Comparable{
         baseStats = new ArrayList <>();
         defense = this.calcDef();
         attack = this.calcAtk();
-        abs = defense*0.2;
+        abs = (int) (defense*0.2);
         wepSkill = this.calcWepSkill();
         miss = 100/wepSkill;
-        dmg = (int)((str*0.80) + (agi*0.5) + attack + wepSkill);
+        dmg = (int)((str*0.1) + (agi*0.1) + (attack*0.1));
         crit = (int)(agi + spd *0.1);
+        spd = calcSpd();
         
     }
+
+    public int getLvl() {
+        return lvl;
+    }
+    public boolean giveRewards(int exp, int gold){
+        this.gold += gold;
+        int reqExp = 100*lvl;
+        this.exp += exp;
+        if(this.exp >= reqExp){
+            lvl++;
+            this.exp = 0;
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+    public int getDmg() {
+        return dmg;
+    }
+
+    public int getCrit() {
+        return crit;
+    }
+
+    public int getAbs() {
+        return abs;
+    }
+    public int calcSpd(){
+        this.spd = baseSpd;
+        int n = 0;
+        for(Weapon wep : equippedWep){
+            this.spd += wep.getSpd();
+            n++;
+        }
+        for(Armor arm : equippedArmor){
+            this.spd += arm.getSpd();
+            n++;
+        }
+        if(n != 0){
+            return spd/n;
+        }else{
+            return spd;
+        }
+        
+    }
+    public int getMiss() {
+        return miss;
+    }
+    
     private int calcDef(){
         int def = 0;
         if(!equippedArmor.isEmpty()){
             for(Armor arm : equippedArmor){
                 int tmp = arm.getDefense();
                 def += tmp;
+            }
+        }
+        if(shieldEquiped){
+            for(Weapon wep : equippedWep){
+                if("Shield".equals(wep.getSlot())){
+                int tmp = wep.getDef();
+                def += tmp;
+                }
             }
         }
         return def;
@@ -81,7 +143,7 @@ public class Player extends Character implements Comparable{
         }
         return wS;
     }
-        
+      
     public Character getCharacters() {
         return this;
     }
@@ -282,52 +344,54 @@ public class Player extends Character implements Comparable{
         updateStats();
     }
     public void unequipWeapon(String slot){
-                    for(Weapon wep : equippedWep){
-                        if(wep.getSlot().equals(slot)){
-                            equippedWep.remove(wep);
-                            switch(slot){
-                                case "Shield":
-                                    shieldEquiped = false;
-                                break;
-                                case "1-Handed":
-                                    oneEquiped = false;
-                                break;
-                                case "2-Handed":
-                                    twoEquiped = false;
-                                break;
-                            }
-                             break;
-                        }
-                    }
+        for(Weapon wep : equippedWep){
+            if(wep.getSlot().equals(slot)){
+                equippedWep.remove(wep);
+                switch(slot){
+                    case "Shield":
+                        shieldEquiped = false;
+                    break;
+                    case "1-Handed":
+                        oneEquiped = false;
+                    break;
+                    case "2-Handed":
+                        twoEquiped = false;
+                    break;
+                }
+                 break;
+            }
+        }
+        updateStats();
                     
     }
    public void unequipArmor(String slot){
-                    for(Armor arm : equippedArmor){
-                        if(arm.getSlot().equals(slot)){
-                            equippedArmor.remove(arm);
-                            switch(slot){
-                                case "Head":
-                                    headEquiped = false;
-                                break;
-                                case "Arm":
-                                    armEquiped = false;
-                                break;
-                                case "Legs":
-                                    legsEquiped = false;
-                                break;
-                                case "Chest":
-                                    chestEquiped = false;
-                                break;
-                                case "Feet":
-                                    feetEquiped = false;
-                                break;
-                                case "Ring":
-                                    ringEquiped = false;
-                                break;
-                            }
-                             break;
-                        }
-                    }
+        for(Armor arm : equippedArmor){
+            if(arm.getSlot().equals(slot)){
+                equippedArmor.remove(arm);
+                switch(slot){
+                    case "Head":
+                        headEquiped = false;
+                    break;
+                    case "Arm":
+                        armEquiped = false;
+                    break;
+                    case "Legs":
+                        legsEquiped = false;
+                    break;
+                    case "Chest":
+                        chestEquiped = false;
+                    break;
+                    case "Feet":
+                        feetEquiped = false;
+                    break;
+                    case "Ring":
+                        ringEquiped = false;
+                    break;
+                }
+                 break;
+            }
+        }
+        updateStats();
                     
     }
     
@@ -344,9 +408,24 @@ public class Player extends Character implements Comparable{
         return equipped;
     }
     public void updateStats(){
-        
+        defense = this.calcDef();
+        attack = this.calcAtk();
+        abs = (int) (defense*0.2);
+        wepSkill = this.calcWepSkill();
+        miss = 100/wepSkill;
+        dmg = (int)((str*0.1) + (agi*0.1) + attack*0.1);
+        crit = (int)(agi + spd *0.1);
+        baseHP = (int) (thg*1.2);
+        spd = calcSpd();
     }
-    
+    @Override
+    public int getSpd(){
+        return spd;
+    }
+   
+    public void setBaseHP(){
+        HP = baseHP;
+    }
     
     public void addWeapon(Weapon wep, boolean loading){
         wepInventory.add(wep);
@@ -375,7 +454,7 @@ public class Player extends Character implements Comparable{
     }
     
     public int[] getStats(){
-        int[] statList = new int[]{agi, str, spd, thg, onehand, twohand, shield, lvl, exp, HP, gold};
+        int[] statList = new int[]{agi, str, spd, thg, onehand, twohand, shield, lvl, exp, baseHP, gold};
         return statList;
     }
     public boolean hasMoney(int cost){
@@ -431,7 +510,7 @@ public class Player extends Character implements Comparable{
     }
     
     public String statsToString() {
-        int[] statList = new int[]{agi, str, spd, thg, onehand, twohand, shield, lvl, exp, HP, gold};
+        int[] statList = new int[]{agi, str, baseSpd, thg, onehand, twohand, shield, lvl, exp, baseHP, gold};
         String s = "";
         for(int i = 0; i < statList.length; i++){
             if(i == 12){
@@ -472,5 +551,44 @@ public class Player extends Character implements Comparable{
         int r = die.nextInt(100) +1;
         return r > crit;
     }
+
+    @Override
+    public void setNewHP(int dmg) {
+        if(dmg > 0){
+           HP -=dmg;
+        }        
+    }
+    public void levelUP(int [] stats){
+        for(int i = 0; i < stats.length; i++){
+            switch(i){
+                case 0:
+                    agi += stats[i];
+                break;
+                case 1:
+                    str += stats[i];
+                break;
+                case 2:
+                    baseSpd += stats[i];
+                break;
+                case 3:
+                    thg += stats[i];
+                break;    
+                case 4:
+                    onehand += stats[i];
+                break;
+                case 5:
+                    twohand += stats[i];
+                break;
+                case 6:
+                    shield += stats[i];
+                break;
+            }
+            
+        }
+        updateStats();
+    }
+
+    
+    
     
 }

@@ -62,7 +62,7 @@ public class GUI extends javax.swing.JFrame {
         cmbCloth = new javax.swing.JComboBox();
         cmbLeather = new javax.swing.JComboBox();
         cmbMetal = new javax.swing.JComboBox();
-        jLabel23 = new javax.swing.JLabel();
+        lblMarketCloth = new javax.swing.JLabel();
         lblLeather = new javax.swing.JLabel();
         lblMetal = new javax.swing.JLabel();
         cmbRing = new javax.swing.JComboBox();
@@ -89,14 +89,14 @@ public class GUI extends javax.swing.JFrame {
         lblOneStats = new javax.swing.JLabel();
         lblTwoStats = new javax.swing.JLabel();
         lblHackStats = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        txfAgi = new javax.swing.JTextField();
+        txfStr = new javax.swing.JTextField();
+        txfSpd = new javax.swing.JTextField();
+        txfTgh = new javax.swing.JTextField();
+        txf2h = new javax.swing.JTextField();
+        txf1h = new javax.swing.JTextField();
+        txfShield = new javax.swing.JTextField();
+        txfPoints = new javax.swing.JTextField();
         pnlGear = new javax.swing.JPanel();
         lblChest = new javax.swing.JLabel();
         lblHelm = new javax.swing.JLabel();
@@ -162,6 +162,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        lbl2Handed.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbl2Handed.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl2HandedMouseClicked(evt);
+            }
+        });
+
         btnBuy2Handed.setText("Buy 2-Handed Weapon");
         btnBuy2Handed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,6 +210,13 @@ public class GUI extends javax.swing.JFrame {
         cmb1Handed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmb1HandedActionPerformed(evt);
+            }
+        });
+
+        lbl1handed.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbl1handed.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl1handedMouseClicked(evt);
             }
         });
 
@@ -250,6 +264,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        lblShield.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblShield.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblShieldMouseClicked(evt);
+            }
+        });
+
         btnBuyShield.setText("Buy Shield");
         btnBuyShield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -293,16 +314,41 @@ public class GUI extends javax.swing.JFrame {
 
         cmbMetal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Helm", "Upperbody", "Lowerbody", "Arms", "Feet" }));
 
-        jLabel23.setText("Cloth Armor");
+        lblMarketCloth.setText("Cloth Armor");
+        lblMarketCloth.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblMarketCloth.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMarketClothMouseClicked(evt);
+            }
+        });
 
         lblLeather.setText("Leather Armor");
+        lblLeather.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblLeather.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblLeatherMouseClicked(evt);
+            }
+        });
 
         lblMetal.setText("Metal Armor");
+        lblMetal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblMetal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblMetalMouseClicked(evt);
+            }
+        });
 
         cmbRing.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Band of Pain", "Signet of Speed", "Legendary Amulet" }));
         cmbRing.setSelectedIndex(2);
 
+        lblRings.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblRings.setText("Rings");
+        lblRings.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblRings.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblRingsMouseClicked(evt);
+            }
+        });
 
         btnCloth.setText("Buy Cloth");
         btnCloth.addActionListener(new java.awt.event.ActionListener() {
@@ -347,7 +393,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(btnCloth)
                             .addGap(57, 57, 57)))
                     .addGroup(pnlArmorMarketLayout.createSequentialGroup()
-                        .addComponent(jLabel23)
+                        .addComponent(lblMarketCloth)
                         .addGap(79, 79, 79)))
                 .addGroup(pnlArmorMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblLeather)
@@ -355,32 +401,33 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(cmbLeather, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addGroup(pnlArmorMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblMetal)
                     .addComponent(cmbMetal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMetal))
+                    .addComponent(btnMetal)
+                    .addComponent(lblMetal))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
-                .addGroup(pnlArmorMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cmbRing, 0, 123, Short.MAX_VALUE)
-                    .addComponent(lblRings)
-                    .addComponent(btnRing, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnlArmorMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlArmorMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(cmbRing, 0, 123, Short.MAX_VALUE)
+                        .addComponent(btnRing, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblRings, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42))
         );
         pnlArmorMarketLayout.setVerticalGroup(
             pnlArmorMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlArmorMarketLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(pnlArmorMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel23)
-                    .addComponent(lblLeather)
-                    .addComponent(lblMetal)
-                    .addComponent(lblRings))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(56, 56, 56)
                 .addGroup(pnlArmorMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbCloth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbLeather, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbMetal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbRing, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
+                .addGroup(pnlArmorMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMarketCloth, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLeather, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMetal, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRings, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(pnlArmorMarketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCloth)
                     .addComponent(btnMetal)
@@ -423,6 +470,11 @@ public class GUI extends javax.swing.JFrame {
         btnMonsterInfo.setText("Info");
 
         btnEnterArena.setText("Enter the Arena");
+        btnEnterArena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnterArenaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlArenaOptLayout = new javax.swing.GroupLayout(pnlArenaOpt);
         pnlArenaOpt.setLayout(pnlArenaOptLayout);
@@ -453,8 +505,11 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
+        txaArena.setEditable(false);
         txaArena.setColumns(20);
+        txaArena.setLineWrap(true);
         txaArena.setRows(5);
+        txaArena.setWrapStyleWord(true);
         jScrollPane2.setViewportView(txaArena);
 
         javax.swing.GroupLayout pnlArenaLayout = new javax.swing.GroupLayout(pnlArena);
@@ -500,29 +555,29 @@ public class GUI extends javax.swing.JFrame {
 
         lblHackStats.setText("Shield:");
 
-        jTextField2.setEditable(false);
-        jTextField2.setFocusable(false);
+        txfAgi.setEditable(false);
+        txfAgi.setFocusable(false);
 
-        jTextField4.setEditable(false);
-        jTextField4.setFocusable(false);
+        txfStr.setEditable(false);
+        txfStr.setFocusable(false);
 
-        jTextField6.setEditable(false);
-        jTextField6.setFocusable(false);
+        txfSpd.setEditable(false);
+        txfSpd.setFocusable(false);
 
-        jTextField7.setEditable(false);
-        jTextField7.setFocusable(false);
+        txfTgh.setEditable(false);
+        txfTgh.setFocusable(false);
 
-        jTextField8.setEditable(false);
-        jTextField8.setFocusable(false);
+        txf2h.setEditable(false);
+        txf2h.setFocusable(false);
 
-        jTextField9.setEditable(false);
-        jTextField9.setFocusable(false);
+        txf1h.setEditable(false);
+        txf1h.setFocusable(false);
 
-        jTextField10.setEditable(false);
-        jTextField10.setFocusable(false);
+        txfShield.setEditable(false);
+        txfShield.setFocusable(false);
 
-        jTextField11.setEditable(false);
-        jTextField11.setFocusable(false);
+        txfPoints.setEditable(false);
+        txfPoints.setFocusable(false);
 
         pnlGear.setMinimumSize(new java.awt.Dimension(401, 449));
 
@@ -676,6 +731,11 @@ public class GUI extends javax.swing.JFrame {
 
         btnSetStats.setText("Set Stats");
         btnSetStats.setEnabled(false);
+        btnSetStats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSetStatsActionPerformed(evt);
+            }
+        });
 
         btnInfo.setText("Info");
         btnInfo.addActionListener(new java.awt.event.ActionListener() {
@@ -697,24 +757,21 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(69, 69, 69)
                         .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlHeroLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlHeroLayout.createSequentialGroup()
                                 .addComponent(lblHackStats)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txfShield, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnlHeroLayout.createSequentialGroup()
                                 .addComponent(lblTwoStats)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txf2h, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnlHeroLayout.createSequentialGroup()
                                 .addComponent(lblOneStats)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txf1h, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnlHeroLayout.createSequentialGroup()
                                 .addComponent(lblTgh)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
-                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txfTgh, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pnlHeroLayout.createSequentialGroup()
                                 .addComponent(lblWepSkills)
                                 .addGap(0, 166, Short.MAX_VALUE))
@@ -725,13 +782,15 @@ public class GUI extends javax.swing.JFrame {
                                     .addComponent(lblAgi))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)))
-                            .addGroup(pnlHeroLayout.createSequentialGroup()
+                                    .addComponent(txfAgi)
+                                    .addComponent(txfStr, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                                    .addComponent(txfSpd, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeroLayout.createSequentialGroup()
                                 .addComponent(lblStats)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnSetStats))))
+                                .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txfPoints, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnSetStats, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeroLayout.createSequentialGroup()
                         .addComponent(btnEquip)
                         .addGap(18, 18, 18)
@@ -760,35 +819,35 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblAgi)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txfAgi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblStr)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txfStr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
                         .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblSpd)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txfSpd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(16, 16, 16)
                         .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblTgh)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txfTgh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(lblWepSkills)
                         .addGap(18, 18, 18)
                         .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblOneStats)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txf1h, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblTwoStats)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txf2h, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(pnlHeroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblHackStats)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txfShield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(56, 56, 56)
-                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(txfPoints, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         jTabbedPane1.addTab("Hero", pnlHero);
@@ -796,7 +855,9 @@ public class GUI extends javax.swing.JFrame {
         pnlCharacter.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED), "Character", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP)), "Character", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP))));
         pnlCharacter.setPreferredSize(new java.awt.Dimension(216, 782));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/heroFace.png"))); // NOI18N
         jLabel1.setText("BILD");
+        jLabel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         lblGladName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblGladName.setText("Name:");
@@ -840,7 +901,7 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(txfExp)
                     .addComponent(txfHp)
                     .addComponent(txfGold))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -873,11 +934,13 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(pnlCharacterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlCharacterLayout.createSequentialGroup()
-                        .addGroup(pnlCharacterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblGladName, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addComponent(lblGladName)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(pnlCharacterLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlCharacterLayout.setVerticalGroup(
             pnlCharacterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -885,10 +948,10 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(lblGladName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(99, 99, 99))
         );
 
         menuFile.setText("File");
@@ -935,6 +998,11 @@ public class GUI extends javax.swing.JFrame {
         jMenu2.setText("Help");
 
         menuItemAbout.setText("About");
+        menuItemAbout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemAboutActionPerformed(evt);
+            }
+        });
         jMenu2.add(menuItemAbout);
 
         menuItemHelp.setText("Help");
@@ -984,6 +1052,8 @@ public class GUI extends javax.swing.JFrame {
         btnLeather.setEnabled(b);
         btnMetal.setEnabled(b);
         btnRing.setEnabled(b);
+        btnEnterArena.setEnabled(b);
+        btnMonsterInfo.setEnabled(b);
     }
     private void menuItemHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemHelpActionPerformed
        JOptionPane.showMessageDialog(null, "r u a n0b?");
@@ -1072,52 +1142,80 @@ public class GUI extends javax.swing.JFrame {
     private void menuItemOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemOpenActionPerformed
         Player tmp = mod.loadHero();
         if(tmp != null){
-            updateHeroPnl(tmp);
+            
             enableButtons(true);
             this.updateGearLbls();
             updateInventory(mod.getHero());
+            updateHeroPnl(tmp);
         }
         
     }//GEN-LAST:event_menuItemOpenActionPerformed
 
     private void btnBuy2HandedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuy2HandedActionPerformed
+        
         Weapon wep = new TwoHanded("dummy weapon");
         int i = cmb2Handed.getSelectedIndex();
         wep = wep.createWeapon(i);
+        if(mod.getHero().getLvl() >= wep.getLvlReq()){
         mod.addWeapon(wep);
         updateHeroPnl(mod.getHero());
         updateInventory(mod.getHero());
         System.out.println(mod.getHero().getGold());
+        }else{
+            JOptionPane.showMessageDialog(null, "You don't meet the level "
+                    + "requirement for this item\nClick the label to "
+                    + "find out what level is needed.");
+        }
+        
     }//GEN-LAST:event_btnBuy2HandedActionPerformed
 
     private void btnBuy1HandedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuy1HandedActionPerformed
         Weapon wep = new OneHanded("dummy weapon");
         int i = cmb1Handed.getSelectedIndex();
         wep = wep.createWeapon(i);
+        if(mod.getHero().getLvl() >= wep.getLvlReq()){
         mod.addWeapon(wep);
         updateHeroPnl(mod.getHero());
         updateInventory(mod.getHero());
         System.out.println(mod.getHero().getGold());
+        }else{
+            JOptionPane.showMessageDialog(null, "You don't meet the level "
+                    + "requirement for this item\nClick the label to "
+                    + "find out what level is needed.");
+        }
+        
     }//GEN-LAST:event_btnBuy1HandedActionPerformed
 
     private void btnBuyShieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyShieldActionPerformed
         Weapon wep = new Shield("dummy weapon");
         int i = cmbShield.getSelectedIndex();
         wep = wep.createWeapon(i);
+        if(mod.getHero().getLvl() >= wep.getLvlReq()){
         mod.addWeapon(wep);
         updateHeroPnl(mod.getHero());
         updateInventory(mod.getHero());
         System.out.println(mod.getHero().getGold());
+        }else{
+            JOptionPane.showMessageDialog(null, "You don't meet the level "
+                    + "requirement for this item\nClick the label to "
+                    + "find out what level is needed.");
+        }
     }//GEN-LAST:event_btnBuyShieldActionPerformed
 
     private void btnRingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRingActionPerformed
         Armor arm = new Ring("dummy ring");
         int i = cmbRing.getSelectedIndex();
         arm = arm.createArmor(i);
+        if(mod.getHero().getLvl() >= arm.getLvlReq()){
         mod.addArmor(arm);
         updateHeroPnl(mod.getHero());
         updateInventory(mod.getHero());
         System.out.println(mod.getHero().getGold());
+        }else{
+            JOptionPane.showMessageDialog(null, "You don't meet the level "
+                    + "requirement for this item\nClick the label to "
+                    + "find out what level is needed.");
+        }
     }//GEN-LAST:event_btnRingActionPerformed
 
     private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
@@ -1131,29 +1229,48 @@ public class GUI extends javax.swing.JFrame {
         Armor arm = new Cloth("dummy cloth");
         int i = cmbCloth.getSelectedIndex();
         arm = arm.createArmor(i);
+        if(mod.getHero().getLvl() >= arm.getLvlReq()){
         mod.addArmor(arm);
+        updateHeroPnl(mod.getHero());
         updateInventory(mod.getHero());
         System.out.println(mod.getHero().getGold());
+        }else{
+            JOptionPane.showMessageDialog(null, "You don't meet the level "
+                    + "requirement for this item\nClick the label to "
+                    + "find out what level is needed.");
+        }
     }//GEN-LAST:event_btnClothActionPerformed
 
     private void btnLeatherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeatherActionPerformed
         Armor arm = new Leather("dummy leather");
         int i = cmbLeather.getSelectedIndex();
         arm = arm.createArmor(i);
+        if(mod.getHero().getLvl() >= arm.getLvlReq()){
         mod.addArmor(arm);
         updateHeroPnl(mod.getHero());
         updateInventory(mod.getHero());
         System.out.println(mod.getHero().getGold());
+        }else{
+            JOptionPane.showMessageDialog(null, "You don't meet the level "
+                    + "requirement for this item\nClick the label to "
+                    + "find out what level is needed.");
+        }
     }//GEN-LAST:event_btnLeatherActionPerformed
 
     private void btnMetalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMetalActionPerformed
         Armor arm = new Metal("dummy metal");
         int i = cmbMetal.getSelectedIndex();
         arm = arm.createArmor(i);
+        if(mod.getHero().getLvl() >= arm.getLvlReq()){
         mod.addArmor(arm);
         updateHeroPnl(mod.getHero());
         updateInventory(mod.getHero());
         System.out.println(mod.getHero().getGold());
+        }else{
+            JOptionPane.showMessageDialog(null, "You don't meet the level "
+                    + "requirement for this item\nClick the label to "
+                    + "find out what level is needed.");
+        }
     }//GEN-LAST:event_btnMetalActionPerformed
 
     private void btnEquipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEquipActionPerformed
@@ -1216,6 +1333,175 @@ public class GUI extends javax.swing.JFrame {
         mod.unequipArmor(slot);
         this.updateGearLbls();
     }//GEN-LAST:event_lblFeetMouseClicked
+
+    private void btnEnterArenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterArenaActionPerformed
+        Monster monster = new Monster("dummy");
+        monster = monster.createCharacter(cmbMonster.getSelectedIndex());
+        Player hero = mod.getHero();
+        Fight fight = new Fight(monster, hero, txaArena, btnEnterArena);
+        fight.battleOn();
+        updateHeroPnl(hero);
+        if(fight.herolvledUP){
+            setLvlUPenabled(true);
+            enableButtons(false);
+            txfPoints.setText("Points: 15");
+            txf1h.setText("0");
+            txf2h.setText("0");
+            txfShield.setText("0");
+            txfAgi.setText("0");
+            txfStr.setText("0");
+            txfTgh.setText("0");
+            txfSpd.setText("0");
+        }
+    }//GEN-LAST:event_btnEnterArenaActionPerformed
+
+    
+    private void btnSetStatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetStatsActionPerformed
+        int tgh, oneh, twoh, shield, agi, str, spd;
+        try{
+        if(txf1h.getText() != null){
+            oneh = Integer.parseInt(txf1h.getText());
+            
+        }else{
+            oneh = 0;
+        }
+        if(txf2h.getText() != null){
+            twoh = Integer.parseInt(txf2h.getText());
+        }
+        else{
+            twoh = 0;
+        }
+        if(txfShield.getText() != null){
+            shield = Integer.parseInt(txfShield.getText());
+        }
+        else{
+            shield = 0;
+        }
+        if(txfAgi.getText() != null){
+            agi = Integer.parseInt(txfAgi.getText());
+        }
+        else{
+            agi = 0;
+        }
+        if(txfStr.getText() != null){
+            str = Integer.parseInt(txfStr.getText());
+        }
+        else{
+            str = 0;
+        }
+        if(txfTgh.getText() != null){
+            tgh = Integer.parseInt(txfTgh.getText());
+        }else{
+            tgh = 0;
+        }
+        if(txfSpd.getText() != null){
+            spd = Integer.parseInt(txfSpd.getText());
+        }else{
+            spd = 0;
+        }
+        int [] statsPoints = {agi, str, spd, tgh, oneh,twoh,shield};
+        int sum = 0;
+        for(int i : statsPoints){
+            System.out.println(i);
+            sum += i;
+        }
+        if(sum == 15){
+            Player hero = mod.getHero();
+            hero.levelUP(statsPoints);
+            setLvlUPenabled(false);
+            enableButtons(true);
+            txfPoints.setText("");
+            updateHeroPnl(hero);
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "The points you have spent has to add up to 15, please try agian");
+        }
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "You can only enter numbers!");
+            txf1h.setText("0");
+            txf2h.setText("0");
+            txfShield.setText("0");
+            txfAgi.setText("0");
+            txfStr.setText("0");
+            txfTgh.setText("0");
+            txfSpd.setText("0");
+        }
+    }//GEN-LAST:event_btnSetStatsActionPerformed
+
+    private void lbl2HandedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl2HandedMouseClicked
+        Weapon wep = new TwoHanded("dummy");
+        wep = wep.createWeapon(cmb2Handed.getSelectedIndex());
+        JOptionPane.showMessageDialog(null, wep.getInfo());
+    }//GEN-LAST:event_lbl2HandedMouseClicked
+
+    private void lbl1handedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl1handedMouseClicked
+        Weapon wep = new OneHanded("dummy");
+        wep = wep.createWeapon(cmb1Handed.getSelectedIndex());
+        JOptionPane.showMessageDialog(null, wep.getInfo());
+    }//GEN-LAST:event_lbl1handedMouseClicked
+
+    private void lblShieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblShieldMouseClicked
+        Weapon wep = new Shield("dummy");
+        wep = wep.createWeapon(cmbShield.getSelectedIndex());
+        JOptionPane.showMessageDialog(null, wep.getInfo());
+    }//GEN-LAST:event_lblShieldMouseClicked
+
+    private void lblRingsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRingsMouseClicked
+        Armor arm = new Ring("dummy");
+        arm = arm.createArmor(cmbRing.getSelectedIndex());
+        JOptionPane.showMessageDialog(null, arm.getInfo());
+    }//GEN-LAST:event_lblRingsMouseClicked
+
+    private void lblMetalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMetalMouseClicked
+        Armor arm = new Metal("dummy");
+        arm = arm.createArmor(cmbMetal.getSelectedIndex());
+        JOptionPane.showMessageDialog(null, arm.getInfo());
+    }//GEN-LAST:event_lblMetalMouseClicked
+
+    private void lblLeatherMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLeatherMouseClicked
+        Armor arm = new Leather("dummy");
+        arm = arm.createArmor(cmbLeather.getSelectedIndex());
+        JOptionPane.showMessageDialog(null, arm.getInfo());
+    }//GEN-LAST:event_lblLeatherMouseClicked
+
+    private void lblMarketClothMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMarketClothMouseClicked
+        Armor arm = new Cloth("dummy");
+        arm = arm.createArmor(cmbCloth.getSelectedIndex());
+        JOptionPane.showMessageDialog(null, arm.getInfo());
+    }//GEN-LAST:event_lblMarketClothMouseClicked
+
+    private void menuItemAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAboutActionPerformed
+        JOptionPane.showMessageDialog(null, "This program was written by\n"
+                + "Simon Horenstedt\n"
+                + "Mattias Nordberg\n"
+                + "Version: 1.0.0\n"
+                + "\u00a9 2015-05-12 ");
+    }//GEN-LAST:event_menuItemAboutActionPerformed
+    private void setLvlUPenabled(boolean b){
+        btnSetStats.setEnabled(b);
+        txf1h.setEditable(b);
+        txf2h.setEditable(b);
+        txfShield.setEditable(b);
+        txfAgi.setEditable(b);
+        txfStr.setEditable(b);
+        txfTgh.setEditable(b);
+        txfSpd.setEditable(b);
+        txf1h.setFocusable(b);
+        txf2h.setFocusable(b);
+        txfShield.setFocusable(b);
+        txfAgi.setFocusable(b);
+        txfStr.setFocusable(b);
+        txfTgh.setFocusable(b);
+        txfSpd.setFocusable(b);
+        txf1h.setText("");
+        txf2h.setText("");
+        txfShield.setText("");
+        txfAgi.setText("");
+        txfStr.setText("");
+        txfTgh.setText("");
+        txfSpd.setText("");
+        
+    }
     private void updateInventory(Player hero){
         int n = 0;
         for(int i = 0; i < 2; i++){
@@ -1365,7 +1651,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox cmbRing;
     private javax.swing.JComboBox cmbShield;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -1377,14 +1662,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTable jTableInv;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lbl1handed;
     private javax.swing.JLabel lbl2Handed;
     private javax.swing.JLabel lblAgi;
@@ -1401,6 +1678,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblLeather;
     private javax.swing.JLabel lblLegs;
     private javax.swing.JLabel lblLvl;
+    private javax.swing.JLabel lblMarketCloth;
     private javax.swing.JLabel lblMetal;
     private javax.swing.JLabel lblMonster;
     private javax.swing.JLabel lblOneHanded;
@@ -1434,9 +1712,17 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel pnlShieldMarket;
     private javax.swing.JTabbedPane tabMarket;
     private javax.swing.JTextArea txaArena;
+    private javax.swing.JTextField txf1h;
+    private javax.swing.JTextField txf2h;
+    private javax.swing.JTextField txfAgi;
     private javax.swing.JTextField txfExp;
     private javax.swing.JTextField txfGold;
     private javax.swing.JTextField txfHp;
     private javax.swing.JTextField txfLvl;
+    private javax.swing.JTextField txfPoints;
+    private javax.swing.JTextField txfShield;
+    private javax.swing.JTextField txfSpd;
+    private javax.swing.JTextField txfStr;
+    private javax.swing.JTextField txfTgh;
     // End of variables declaration//GEN-END:variables
 }

@@ -19,7 +19,6 @@ public class Model {
     }
     public void saveHero(){
         if(hero!= null){
-            
             try{
                 FileWriter skrivFil1 = new FileWriter(hero.getName()+".txt"); 
                 BufferedWriter writer = new BufferedWriter(skrivFil1);
@@ -121,7 +120,7 @@ public class Model {
     }
     public Player loadHero(){
         loading = true;
-        JFileChooser fc = new JFileChooser(System.getProperty("user.dir") +"\\gladiator");
+        JFileChooser fc = new JFileChooser(System.getProperty("user.dir"));
         fc.showDialog(null, "Choose Gladiator");
 //        try{    
         String filnamn = fc.getSelectedFile().getName(); 
@@ -129,7 +128,7 @@ public class Model {
         if(filnamn.contains(".txt")){
             String s;
             try{
-                BufferedReader lasFil = new BufferedReader(new FileReader("gladiator\\"+filnamn));
+                BufferedReader lasFil = new BufferedReader(new FileReader(filnamn));
                 s = lasFil.readLine();
                 String [] posts = s.split(", ");
                 createHero(posts[0]);

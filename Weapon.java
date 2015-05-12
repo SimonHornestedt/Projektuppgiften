@@ -15,4 +15,7 @@ public abstract class Weapon {
     public abstract String toSaveString();
     public abstract Weapon createWeapon(int i);
     public abstract int getAttack();
+    public abstract int getSpd();
+    public abstract int getDef();
+    public abstract int getLvlReq();
 }

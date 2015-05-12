@@ -94,6 +94,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="About"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemAboutActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemHelp">
               <Properties>
@@ -279,6 +282,14 @@
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lbl2Handed">
+                      <Properties>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Handmark&#xf6;r"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl2HandedMouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnBuy2Handed">
                       <Properties>
@@ -353,6 +364,14 @@
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lbl1handed">
+                      <Properties>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Handmark&#xf6;r"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl1handedMouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnBuy1Handed">
                       <Properties>
@@ -423,6 +442,14 @@
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblShield">
+                      <Properties>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Handmark&#xf6;r"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblShieldMouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnBuyShield">
                       <Properties>
@@ -460,7 +487,7 @@
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblMarketCloth" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -471,15 +498,17 @@
                               </Group>
                               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblMetal" min="-2" max="-2" attributes="0"/>
                                   <Component id="cmbMetal" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnMetal" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblMetal" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="151" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="cmbRing" pref="123" max="32767" attributes="0"/>
-                                  <Component id="lblRings" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnRing" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="cmbRing" pref="123" max="32767" attributes="0"/>
+                                      <Component id="btnRing" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="lblRings" min="-2" pref="98" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                           </Group>
@@ -488,21 +517,21 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblLeather" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblMetal" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblRings" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="cmbCloth" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="cmbLeather" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="cmbMetal" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="cmbRing" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="158" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblMarketCloth" alignment="3" min="-2" pref="94" max="-2" attributes="0"/>
+                                  <Component id="lblLeather" alignment="3" min="-2" pref="94" max="-2" attributes="0"/>
+                                  <Component id="lblMetal" alignment="3" min="-2" pref="94" max="-2" attributes="0"/>
+                                  <Component id="lblRings" alignment="3" min="-2" pref="94" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="36" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btnCloth" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnMetal" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -554,20 +583,38 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel23">
+                    <Component class="javax.swing.JLabel" name="lblMarketCloth">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Cloth Armor"/>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Handmark&#xf6;r"/>
+                        </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblMarketClothMouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblLeather">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Leather Armor"/>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Handmark&#xf6;r"/>
+                        </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblLeatherMouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblMetal">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Metal Armor"/>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Handmark&#xf6;r"/>
+                        </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblMetalMouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="cmbRing">
                       <Properties>
@@ -583,8 +630,15 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblRings">
                       <Properties>
+                        <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="text" type="java.lang.String" value="Rings"/>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Handmark&#xf6;r"/>
+                        </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblRingsMouseClicked"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnCloth">
                       <Properties>
@@ -727,6 +781,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Enter the Arena"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEnterArenaActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -736,8 +793,11 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="txaArena">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="columns" type="int" value="20"/>
+                    <Property name="lineWrap" type="boolean" value="true"/>
                     <Property name="rows" type="int" value="5"/>
+                    <Property name="wrapStyleWord" type="boolean" value="true"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -764,29 +824,25 @@
                               <Component id="pnlGear" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField11" min="-2" pref="50" max="-2" attributes="0"/>
-                                  </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="lblHackStats" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jTextField10" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="txfShield" min="-2" pref="50" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="lblTwoStats" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jTextField8" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="txf2h" min="-2" pref="50" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="lblOneStats" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jTextField9" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="txf1h" min="-2" pref="50" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="lblTgh" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace pref="141" max="32767" attributes="0"/>
-                                      <Component id="jTextField7" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Component id="txfTgh" min="-2" pref="50" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="lblWepSkills" min="-2" max="-2" attributes="0"/>
@@ -800,15 +856,18 @@
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jTextField2" max="32767" attributes="0"/>
-                                          <Component id="jTextField4" pref="50" max="32767" attributes="0"/>
-                                          <Component id="jTextField6" pref="50" max="32767" attributes="0"/>
+                                          <Component id="txfAgi" max="32767" attributes="0"/>
+                                          <Component id="txfStr" pref="50" max="32767" attributes="0"/>
+                                          <Component id="txfSpd" pref="50" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
                                       <Component id="lblStats" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="btnSetStats" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txfPoints" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="btnSetStats" alignment="1" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
@@ -847,42 +906,42 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblAgi" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txfAgi" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblStr" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txfStr" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblSpd" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txfSpd" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblTgh" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txfTgh" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="lblWepSkills" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblOneStats" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txf1h" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblTwoStats" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txf2h" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblHackStats" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txfShield" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                              <Component id="jTextField11" min="-2" max="-2" attributes="0"/>
+                              <Component id="txfPoints" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -941,49 +1000,49 @@
                 <Property name="text" type="java.lang.String" value="Shield:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
+            <Component class="javax.swing.JTextField" name="txfAgi">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4">
+            <Component class="javax.swing.JTextField" name="txfStr">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField6">
+            <Component class="javax.swing.JTextField" name="txfSpd">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField7">
+            <Component class="javax.swing.JTextField" name="txfTgh">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField8">
+            <Component class="javax.swing.JTextField" name="txf2h">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField9">
+            <Component class="javax.swing.JTextField" name="txf1h">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField10">
+            <Component class="javax.swing.JTextField" name="txfShield">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField11">
+            <Component class="javax.swing.JTextField" name="txfPoints">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
                 <Property name="focusable" type="boolean" value="false"/>
@@ -1223,6 +1282,9 @@
                 <Property name="text" type="java.lang.String" value="Set Stats"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSetStatsActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnInfo">
               <Properties>
@@ -1276,14 +1338,16 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel1" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jLabel1" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
-                              <Component id="lblGladName" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lblGladName" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="146" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1293,10 +1357,10 @@
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   <Component id="lblGladName" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="200" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1304,7 +1368,15 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/heroFace.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="BILD"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                <BevelBorder bevelType="1"/>
+              </Border>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblGladName">
@@ -1340,7 +1412,7 @@
                           <Component id="txfHp" max="32767" attributes="0"/>
                           <Component id="txfGold" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="73" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
