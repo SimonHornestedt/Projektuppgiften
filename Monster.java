@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -109,5 +110,12 @@ public class Monster extends Character implements Comparable{
         }else{
             return true;
         }  
+    }
+    @Override
+    public boolean critHits(){
+        Random die = new Random();
+        
+        int r = die.nextInt(100) +1;
+        return r > crit;
     }
 }

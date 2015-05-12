@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 
@@ -464,6 +465,12 @@ public class Player extends Character implements Comparable{
         }  
     }
 
-    
+    @Override
+    public boolean critHits(){
+        Random die = new Random();
+        
+        int r = die.nextInt(100) +1;
+        return r > crit;
+    }
     
 }

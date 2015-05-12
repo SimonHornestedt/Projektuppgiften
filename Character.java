@@ -12,6 +12,7 @@ public abstract class Character implements Comparable {
     }
     
    
+    public abstract boolean critHits();
     
     public abstract String getName();
     @Override

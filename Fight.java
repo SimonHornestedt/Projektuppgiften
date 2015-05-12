@@ -33,23 +33,24 @@ public class Fight{
         int r = die.nextInt(4);
         switch(r){
             default:
-                str = "With a swift and precise move " + a.getName() + 
-                        " strikes " +e.getName() + " for " 
-                        + Integer.toString(dmg) +" damage.";
+                str =  a.getName() + " takes the initiative and strikes before " 
+                        +e.getName() + " manages to react. " + a.getName()+ " deals "
+                        + Integer.toString(dmg) +" damage. ";
             break; 
             case 1:
-                str = a.getName() + " critically damages " + e.getName() + 
-                        " by puncturing a lung with the hard blow. Causing " 
-                        + Integer.toString(dmg) + " damage to "  + e.getName() + ".";
+                str = a.getName() + " tricks " + e.getName() + " by kicking"
+                        + " sand into his face and gets the upper hand. "+ 
+                        a.getName()+ " deals " + Integer.toString(dmg) + " damage.";
             break;
             case 2:
-                str = a.getName() +" is lucky when he strikes and he manages "
-                        + "to deal "+ Integer.toString(dmg) + " damage to " + e.getName() +".";
+                str = e.getName()+ " stumbles and " + a.getName()+ "takes the "
+                        + "opportunity and strikes for " 
+                        + Integer.toString(dmg)+ " damage";
             break;            
             case 3:
-                str = a.getName() + " lands a devastating blow when he puts "
-                        + "all his strenght into the attack." + e.getName() + 
-                        " is damaged " + Integer.toString(dmg) + " HP." ;
+                str = a.getName() + "´s speed gives him the advantage. He "
+                        + "finds a chance and attacks. Dealing "
+                        + Integer.toString(dmg) + " damage";
             break;
         }
         return str;
