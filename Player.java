@@ -51,7 +51,7 @@ public class Player extends Character{
         wepSkill = this.calcWepSkill();
         miss = 100/wepSkill;
         dmg = (int)((str*0.1) + (agi*0.1) + (attack*0.1));
-        crit = (int)(agi + spd *0.1);
+        crit = (int)(100 -((agi + spd)*0.1));
         spd = calcSpd();
         
     }
@@ -414,7 +414,7 @@ public class Player extends Character{
         wepSkill = this.calcWepSkill();
         miss = 100/wepSkill;
         dmg = (int)((str*0.1) + (agi*0.1) + attack*0.1);
-        crit = (int)(agi + spd *0.1);
+        crit = (int)(100- ((agi + spd) *0.1));
         baseHP = (int) (thg*1.2);
         spd = calcSpd();
     }
