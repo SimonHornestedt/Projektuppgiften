@@ -1485,7 +1485,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void btnMonsterInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMonsterInfoActionPerformed
         Monster monster = new Monster("dummy");
-        monster = monster.createCharacter(cmbCloth.getSelectedIndex());
+        monster = monster.createCharacter(cmbMonster.getSelectedIndex());
         JOptionPane.showMessageDialog(null, monster.getInfo());
     }//GEN-LAST:event_btnMonsterInfoActionPerformed
     private void setLvlUPenabled(boolean b){
