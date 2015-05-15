@@ -1625,6 +1625,15 @@ public class GUI extends javax.swing.JFrame {
                 + "Version: 1.0.0\n"
                 + "\u00a9 2015-05-12 ");
     }//GEN-LAST:event_menuItemAboutActionPerformed
+    /**
+     * Knappevent för monster infoknapp
+     * @param evt Action event
+     */
+    private void btnMonsterInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMonsterInfoActionPerformed
+        Monster m = new Monster("dummy");
+        m = m.createCharacter(cmbMonster.getSelectedIndex());
+        JOptionPane.showMessageDialog(null, m.getInfo());
+    }//GEN-LAST:event_btnMonsterInfoActionPerformed
     
     /**
      * Gör så att det går att använda textfält och knappar för att levla up en gång.
