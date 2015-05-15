@@ -1622,7 +1622,7 @@ public class GUI extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "This program was written by\n"
                 + "Simon Horenstedt\n"
                 + "Mattias Nordberg\n"
-                + "Version: 1.0.0\n"
+                + "Version: 1.1.0\n"
                 + "\u00a9 2015-05-12 ");
     }//GEN-LAST:event_menuItemAboutActionPerformed
     /**

@@ -1,0 +1,33 @@
+Loggbok programmering Projektuppgift Gladiator av Simon Hornestedt och Mattias Nordberg
+
+2015-04-15 15:18 Klasser skapade och namngivna, strukturen disskuterad och uppritad. Påbörjat GUI fortsätt där nästa gång. Simon och Mattias
+
+2015-04-17 15:07 GUI fortsatt Hero panelen är nästan färdig MarketGUI börjar även det ta form. Fortsätt där nästa gång. Simon och Mattias
+
+2015-04-21 16:08 Bilder till Heropanel inlagda fortsätt med Marketbilder nästa gång. Simon och Mattias
+
+2015-04-22 15:10 Bilder till 2hands market fixat. de flesta bilder är dessutom nedsparade. Fortsätt med GUI bilder nästa gång. Simon och Mattias
+
+2015-04-24 15:15 Ännu fler bilder till GUI och nu är Marknads GUI:t klart. påbörja logik kring skapa, spara och läsa gladiatorer nästa gång. Simon och Mattias
+
+2015-05-02 17:11 Stor förändring i sturkturen då det blev lättare på detta sätt. Man kan nu läsa in och skapa gladiatorer men endast med Stats. Inventory och gear kommer senare. Simon och Mattias efter ett 6 timmars pass. 
+
+2015-05-02 17:12 Några omdöpta filer från förra loggen bara.
+
+2015-05-03 17:50 Market börjar fungera då det går att handla korrekt nu. Vi överträffade oss själva lite denna gång med att fixa tablemodel klassen utan att behöva skriva om den. Gode stolt över lösningen i metoden updateInventory(); Simon och Mattias som börjar se ljuset i slutet av tunneln.
+
+2015-05-05 21:18 Väldigt stora förbättringar vad gäller logik vid inläsning och skapande av vapen/rustning. inladdningen är nu fullständig med inventory samt gear och stats.Simon och Mattias
+
+2015-05-06 15:08 Uppdaterat lite buggar och skrivit om statsen till vapnen. Simon och Mattias
+
+2015-05-08 19:51 När strukturen av statsen disskuterats 500 ggr så har vi äntligen kommit fram till delen när vi kan koda fighten. den är endast påbörjad och kommer att slutföras inom kort. Simon och Mattias
+
+2015-05-09 10:00 På bussen till Umeå passade jag på att författa lite fight. Simon 
+
+2015-05-12 17:43 Stor förbättring i programmet, version 1.0.0 släppt i "commit:en" idag. Buggfix och kommentering samt UML står framför oss nu. Simon och Mattias
+
+2015-05-13 14:32 Buggfix och version 1.0.1. Simon
+
+2015-05-15 22:20 Kommentarer och uppstädad kod. Simon
+
+2015-05-15 23:54 på håret men nu är det dags för inlämning av Gladiator Version 1.1.0 Skrivet av Simon Hornestedt och Mattias Norberg i Programmering 2 kursen Teknikprogrammet björknäsgymnasiet.
