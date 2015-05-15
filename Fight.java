@@ -58,6 +58,7 @@ public class Fight{
         int i = 1;
         boolean secondHit = true;
         while(monster.isAlive() && hero.isAlive()){
+            secondHit = true;
             txa.append("Round: " + i +" \n \n");
             roundString = "";
             int heroSpdBonus = die.nextInt(25) +1;
@@ -267,7 +268,7 @@ public class Fight{
             heroWon();
             hero.setBaseHP();
         }else if(monster.isAlive()){
-            winStr = monster.getName() + " has been awarded with the victory and" + hero.getName() + " has been sent to the infimary for 1 minute\n \n";
+            winStr = monster.getName() + " has been awarded with the victory and " + hero.getName() + " has been sent to the infimary for 1 minute\n \n";
             txa.append(winStr);  
             heroDead();
             

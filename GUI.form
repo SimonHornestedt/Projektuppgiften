@@ -550,8 +550,8 @@
                           <StringArray count="5">
                             <StringItem index="0" value="Helm"/>
                             <StringItem index="1" value="Upperbody"/>
-                            <StringItem index="2" value="Lowerbody"/>
-                            <StringItem index="3" value="Arms"/>
+                            <StringItem index="2" value="Arms"/>
+                            <StringItem index="3" value="Lowerbody"/>
                             <StringItem index="4" value="Feet"/>
                           </StringArray>
                         </Property>
@@ -563,8 +563,8 @@
                           <StringArray count="5">
                             <StringItem index="0" value="Helm"/>
                             <StringItem index="1" value="Upperbody"/>
-                            <StringItem index="2" value="Lowerbody"/>
-                            <StringItem index="3" value="Arms"/>
+                            <StringItem index="2" value="Arms"/>
+                            <StringItem index="3" value="Lowerbody"/>
                             <StringItem index="4" value="Feet"/>
                           </StringArray>
                         </Property>
@@ -576,8 +576,8 @@
                           <StringArray count="5">
                             <StringItem index="0" value="Helm"/>
                             <StringItem index="1" value="Upperbody"/>
-                            <StringItem index="2" value="Lowerbody"/>
-                            <StringItem index="3" value="Arms"/>
+                            <StringItem index="2" value="Arms"/>
+                            <StringItem index="3" value="Lowerbody"/>
                             <StringItem index="4" value="Feet"/>
                           </StringArray>
                         </Property>
@@ -776,6 +776,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Info"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMonsterInfoActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnEnterArena">
                   <Properties>

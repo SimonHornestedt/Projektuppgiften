@@ -304,11 +304,11 @@ public class GUI extends javax.swing.JFrame {
 
         tabMarket.addTab("Shields", pnlShieldMarket);
 
-        cmbCloth.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Helm", "Upperbody", "Lowerbody", "Arms", "Feet" }));
+        cmbCloth.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Helm", "Upperbody", "Arms", "Lowerbody", "Feet" }));
 
-        cmbLeather.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Helm", "Upperbody", "Lowerbody", "Arms", "Feet" }));
+        cmbLeather.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Helm", "Upperbody", "Arms", "Lowerbody", "Feet" }));
 
-        cmbMetal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Helm", "Upperbody", "Lowerbody", "Arms", "Feet" }));
+        cmbMetal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Helm", "Upperbody", "Arms", "Lowerbody", "Feet" }));
 
         lblMarketCloth.setText("Cloth Armor");
         lblMarketCloth.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -464,6 +464,11 @@ public class GUI extends javax.swing.JFrame {
         cmbMonster.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Goblin", "Dwarf", "Troll", "Elemental", "Nerubian", "Giant", "Arthis the Lich Queen" }));
 
         btnMonsterInfo.setText("Info");
+        btnMonsterInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMonsterInfoActionPerformed(evt);
+            }
+        });
 
         btnEnterArena.setText("Enter the Arena");
         btnEnterArena.addActionListener(new java.awt.event.ActionListener() {

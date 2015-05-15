@@ -57,11 +57,18 @@ public class Monster extends Character {
     public int getGoldReward() {
         return goldReward;
     }
+
     
     /**
      * Hämtar snabbhet hos monstret
      * @return int med snabbheten
      */
+
+    public String getInfo(){
+        String info = name + "\n" +"Attack: " + dmg+ "\n" + "HP: "+ HP;
+        return info;
+    }
+
     public int getSpd() {
         return speed;
     }
@@ -111,7 +118,7 @@ public class Monster extends Character {
                 m = new Monster("Dwarf", 20, 7, 3, 25, 95, 45, 35, 8);
             break;
             case 0:
-                m = new Monster("Goblin", 15, 4, 1, 20, 99, 20, 15, 10);
+                m = new Monster("Goblin", 15, 4, 0, 10, 99, 20, 15, 10);
             break;
             case 2:
                 m = new Monster("Troll", 45, 8, 5, 30, 90, 50, 60, 6);
