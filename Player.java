@@ -583,6 +583,11 @@ public class Player extends Character{
         int[] statList = new int[]{agi, str, spd, thg, onehand, twohand, shield, lvl, exp, baseHP, gold};
         return statList;
     }
+    /**
+     * Kontrollerar om spelaren har pengar
+     * @param cost kostnaden för objektet som ska köpas
+     * @return boolean för vilkoret om spelaren har mer pengar är kostnaden är.
+     */
     public boolean hasMoney(int cost){
         if(cost > gold){
             return false;

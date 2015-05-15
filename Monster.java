@@ -93,7 +93,7 @@ public class Monster extends Character {
      * Hämtar crit chans hos monstret
      * @return int med crit chansen
      */
-    public double getCrit() {
+    public int getCrit() {
         return crit;
     }
     
