@@ -1,26 +1,35 @@
-
-import java.util.ArrayList;
-import java.util.Random;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
- *
- * @author 96simrog
- */
+     * Version 1.0.1.2
+     * @author Simon Hornestedt och Mattias Nordberg
+     */
 public class Monster extends Character {
+    /**
+     * Medlemsvariabler
+     */
     protected int speed, dmg, HP, expReward, goldReward, crit, abs, miss;
     
-    
+    /**
+     * Konstruktor till klassen Monster
+     * @param n namnet
+     */
     
     public Monster(String n){
         super(n);
         
     }
     
+    /**
+     * Konstruktor till klassen Monster
+     * @param n Namn
+     * @param spd snabbhet
+     * @param dmg skada
+     * @param def försvar/absorb
+     * @param HP HealthPoints
+     * @param crit Critchans
+     * @param exp exp belöning för vinst 
+     * @param gold guld belöning för vinst
+     * @param miss miss chans
+     */
     public Monster(String n, int spd, int dmg, int def, int HP, int crit, int exp, int gold, int miss){
         super(n);
         this.crit = crit;
@@ -32,41 +41,69 @@ public class Monster extends Character {
         this.goldReward = gold;
         this.miss = miss;
     }
-
+    
+    /**
+     * Hämtar exp belöningen
+     * @return int med exp belöning
+     */
     public int getExpReward() {
         return expReward;
     }
-
+    
+    /**
+     * Hämtar guld belöningen
+     * @return int med guld belöning
+     */
     public int getGoldReward() {
         return goldReward;
     }
     
+    /**
+     * Hämtar snabbhet hos monstret
+     * @return int med snabbheten
+     */
     public int getSpd() {
         return speed;
     }
-
+    
+    /**
+     * Hämtar skadan hos monstret
+     * @return int med skadan
+     */
     public int getDmg() {
         return dmg;
     }
-
+    
+    /**
+     * Hämtar hp hos monstret
+     * @return int med HP
+     */
     public int getHP() {
         return HP;
     }
-
+    
+    /**
+     * Hämtar crit chans hos monstret
+     * @return int med crit chansen
+     */
     public double getCrit() {
         return crit;
     }
+    
+    /**
+     * Hämtar absorb hos monstret
+     * @return int med absorb
+     */
     @Override
     public int getAbs() {
         return abs;
     }
     
-    
-    @Override
-    public String toString() {
-        return name; 
-    }
-    
+   /**
+    * Skapar ett monster
+    * @param i det monster man vill 
+    * @return det skapade monstret
+    */
     public Monster createCharacter(int i) {
        Monster m = null;
         switch(i){
@@ -98,16 +135,28 @@ public class Monster extends Character {
         
         return m;
     }
-    public Character getCharacters() {
-        return this;
-    }
+    
+    /**
+     * Hämtar monstrets namn
+     * @return Sträng men namnet
+     */
     @Override
     public String getName() {
         return name;
     }
+    
+    /**
+     * Hämtar monstrets chans att missa
+     * @return int med misschansen
+     */
     public int getMiss(){
         return miss;
     }
+    
+    /**
+     * kontrollerar om mosntret lever
+     * @return boolean true om det lever, false om det är dött
+     */
     @Override
     public boolean isAlive() {
         if(HP <= 0){
@@ -116,13 +165,11 @@ public class Monster extends Character {
             return true;
         }  
     }
-    @Override
-    public boolean critHits(){
-        Random die = new Random();
-        
-        int r = die.nextInt(100) +1;
-        return r > crit;
-    }
+    
+    /**
+     * Sätter nytt hp baserat på inkommande skada
+     * @param dmg inkommande skada
+     */
     @Override
     public void setNewHP(int dmg) {
         if(dmg > 0){

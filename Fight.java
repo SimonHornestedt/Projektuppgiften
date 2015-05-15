@@ -1,4 +1,7 @@
-
+/**
+     * Version 1.0.1.2
+     * @author Simon Hornestedt och Mattias Nordberg
+     */
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -9,6 +12,9 @@ import javax.swing.JTextArea;
 
 
 public class Fight{
+    /**
+     * Medlemsvariabler
+     */
     Player hero;
     Monster monster;
     JTextArea txa;
@@ -17,7 +23,13 @@ public class Fight{
     boolean herolvledUP;
     private String winStr, roundString;
     
-    
+    /**
+     * Konstruktor för klassen Fight
+     * @param m monstret
+     * @param hero spelaren
+     * @param txa textArean som ska hantera fighten
+     * @param btn enterArena knappen
+     */
     public Fight(Monster m, Player hero, JTextArea txa, JButton btn){
         this.hero = hero;
         this.monster = m;
@@ -28,11 +40,20 @@ public class Fight{
         txa.setText("");
     }
     
+    /**
+     * författar en absorb sträng
+     * @param e Den attackerade karaktären
+     * @return författad absorbsträng
+     */
     private String absStr(Character e){
         String str = "";
         str = e.getName() + "'s armor absorbs " + Integer.toString(e.getAbs()) +" damage. ";
         return str;
     }
+    
+    /**
+     * Kör fighten.
+     */
     public void battleOn(){
         int i = 1;
         boolean secondHit = true;
@@ -63,6 +84,10 @@ public class Fight{
         }
         battleOff();
     }
+    
+    /**
+     * Hjälten slår sitt slag.
+     */
     private void heroStrike(){
         int cc = die.nextInt(100)+1;
         int mc = die.nextInt(100)+1;
@@ -88,6 +113,10 @@ public class Fight{
         }
         
     }
+    
+    /**
+     * Monstret slår sitt slag.
+     */
     private void monsterStrike(){
         int cc = die.nextInt(100)+1;
         int mc = die.nextInt(100)+1;
@@ -112,6 +141,14 @@ public class Fight{
             }
         }
     }
+    
+    /**
+     * Författar en hitString
+     * @param a attackerande Karaktär
+     * @param e attackerad karaktär
+     * @param dmg skadan som görs
+     * @return författad sträng för hit 
+     */
     private String hitStr(Character a, Character e, int dmg){
         String str = "";
         Random die = new Random();
@@ -140,6 +177,14 @@ public class Fight{
         }
         return str;
     }
+    
+    /**
+     * Författar en crit String
+     * @param a attackerande Karaktär
+     * @param e attackerad karaktär
+     * @param dmg skadan som görs
+     * @return författad sträng för crit 
+     */
     private String critStr(Character a, Character e, int dmg){
         String str = "";
         Random die = new Random();
@@ -167,6 +212,12 @@ public class Fight{
         }
         return str;
     }
+    
+    /**
+     * Författar en miss sträng
+     * @param c karaktären som missar
+     * @return författad miss sträng
+     */
     private String missStr(Character c){
         String str = null;
         Random die = new Random();
@@ -196,6 +247,10 @@ public class Fight{
         }
         return str;
     }
+    
+    /**
+     * Körs när någon vunnit fighten
+     */
     private void battleOff(){
         
         
@@ -219,6 +274,10 @@ public class Fight{
         }
         
     }
+    
+    /**
+     * "söver" knappen om heron har dött
+     */
     private void heroDead(){
          Runnable r = new Runnable() {
             @Override
@@ -238,6 +297,10 @@ public class Fight{
         Thread thr = new Thread(r);
         thr.start();
     }
+    
+    /**
+     * Söver knappen en kortare tid om spelaren vunnit
+     */
     private void heroWon(){
          Runnable r = new Runnable() {
             @Override
@@ -257,6 +320,11 @@ public class Fight{
         Thread thr = new Thread(r);
         thr.start();
     }
+    
+    /**
+     * kontrollerar om spelaren blev en nivå högre efter matchen
+     * @return boolean, true om man levlat up false om man inte gjort det.
+     */
     public boolean getLvledUP(){
         return herolvledUP;
     }

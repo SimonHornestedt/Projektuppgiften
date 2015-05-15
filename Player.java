@@ -1,22 +1,33 @@
 
 import java.util.ArrayList;
-import java.util.Random;
+
 import javax.swing.JOptionPane;
 
-
+/**
+     * Version 1.0.1.2
+     * @author Simon Hornestedt och Mattias Nordberg
+     */
 public class Player extends Character{
-    private int agi, str, spd, thg, onehand, twohand, shield, lvl, exp, HP, 
-            gold, dmg, defense, attack, wepSkill,crit, abs ,miss, baseHP, baseSpd;
+    /**
+     * Medlemsvariabler
+     */
+    private int agi, str, spd, thg, onehand, 
+            twohand,shield, lvl, exp, HP, 
+            gold, dmg, defense, attack, wepSkill,
+            crit, abs ,miss, baseHP, baseSpd;
    
-    ArrayList <Armor> armorInventory;
-    ArrayList <Weapon> wepInventory;
+    private ArrayList <Armor> armorInventory;
+    private ArrayList <Weapon> wepInventory;
     boolean headEquiped,chestEquiped,armEquiped,legsEquiped,
             feetEquiped,ringEquiped,shieldEquiped,twoEquiped,oneEquiped;
-    ArrayList <Integer> baseStats;
-    ArrayList <Weapon> equippedWep;
-    ArrayList <Armor> equippedArmor;
     
+    private ArrayList <Weapon> equippedWep;
+    private ArrayList <Armor> equippedArmor;
     
+    /**
+     * Konstruktor till klassen player
+     * @param n String med namnet på karaktären
+     */
     public Player(String n){
         super(n);
         agi = 10;
@@ -44,7 +55,6 @@ public class Player extends Character{
         wepInventory = new ArrayList <>();
         equippedWep = new ArrayList <>();
         equippedArmor = new ArrayList <>();
-        baseStats = new ArrayList <>();
         defense = this.calcDef();
         attack = this.calcAtk();
         abs = (int) (defense*0.2);
@@ -55,10 +65,22 @@ public class Player extends Character{
         spd = calcSpd();
         
     }
-
+    
+    /**
+     * Hämtar spelarens level
+     * @return int med leveln
+     */
     public int getLvl() {
         return lvl;
     }
+    
+    /**
+     * Delar ut pengar och exp till spelaren
+     * @param exp int mängd exp
+     * @param gold itn mängd guld
+     * @return skickar skickar tillbaka sant om 
+     * spelare anvancerat en level av den exp den fått.
+     */
     public boolean giveRewards(int exp, int gold){
         this.gold += gold;
         int reqExp = 100*lvl;
@@ -69,20 +91,37 @@ public class Player extends Character{
             return true;
         }else{
             return false;
-        }
-        
+        }    
     }
+    
+    /**
+     * Skickar spelarens skadepoäng
+     * @return int med skadan
+     */
     public int getDmg() {
         return dmg;
     }
-
+    
+    /**
+     * Hämtar spelarens chans att skada dubbelt
+     * @return int chans att skada dubbelt 
+     */
     public int getCrit() {
         return crit;
     }
-
+    
+    /** 
+     * Hämtar spelarens absorb
+     * @return int absorb
+     */
     public int getAbs() {
         return abs;
     }
+    
+    /**
+     * Räknar ut spelarens snabbhet
+     * @return int med spelarens hastighet
+     */
     public int calcSpd(){
         this.spd = baseSpd;
         int n = 0;
@@ -101,10 +140,19 @@ public class Player extends Character{
         }
         
     }
+    
+    /**
+     * Hämtar miss chansen
+     * @return int misschans
+     */
     public int getMiss() {
         return miss;
     }
     
+    /**
+     * Beräknar spelarens försvar
+     * @return int spelarens försvar
+     */
     private int calcDef(){
         int def = 0;
         if(!equippedArmor.isEmpty()){
@@ -124,6 +172,10 @@ public class Player extends Character{
         return def;
     }
     
+    /**
+     * Beräknar spelarens anfall
+     * @return int spelarens anfall
+     */
     private int calcAtk(){
         int atk = 0;
         if(!equippedWep.isEmpty()){
@@ -134,6 +186,11 @@ public class Player extends Character{
         }
         return atk;
     }
+    
+    /**
+     * Beräknar spelarens vapenfärdighet med det valda vapnet
+     * @return int spelarens vapenfärdighet
+     */
     private int calcWepSkill(){
         int wS = 10;
         if(oneEquiped){
@@ -143,26 +200,47 @@ public class Player extends Character{
         }
         return wS;
     }
-      
-    public Character getCharacters() {
-        return this;
-    }
-
+     
+    
+    /**
+     * Hämtar vapen som hjälten håller i 
+     * @return ArrayList <Weapon> Hjätens vapen
+     */
     public ArrayList<Weapon> getEquippedWep() {
         return equippedWep;
     }
-
+    
+    /**
+     * Hämtar utrustning som hjälten håller i 
+     * @return ArrayList <Armor> Hjätens utrustning
+     */
     public ArrayList<Armor> getEquippedArmor() {
         return equippedArmor;
     }
+    
+    /**
+     * ger spelaren de vapen som laddats in
+     * @param w Det vapen som har laddats in
+     */
     public void equipLoadedWeapons(Weapon w){
         String slot = w.getSlot();
         this.equipWeapon(w, slot);
     }
+    
+    /**
+     * ger spelaren den utrustning som laddats in
+     * @param a Den utrustning som har laddats in
+     */
     public void equipLoadedGear(Armor a){
         String slot = a.getSlot();
         this.equipArmor(a, slot);
     }
+    
+    /**
+     * ger spelaren ett vapen
+     * @param w Vapnet som ska läggas in
+     * @param slot platsen den ska läggas till på
+     */
     public void equipWeapon(Weapon w, String slot){
         System.out.println(w);
         System.out.println(slot);
@@ -232,6 +310,11 @@ public class Player extends Character{
         updateStats();
         
     }
+    /**
+     * Klär på spelaren vald utrustning
+     * @param a Armor utrustning som ska sättas på 
+     * @param slot platsen den ska läggas till på.
+     */
     public void equipArmor(Armor a, String slot){
         
         System.out.println(a);
@@ -343,6 +426,10 @@ public class Player extends Character{
         }
         updateStats();
     }
+    /**
+     * Tar av ett vapen från given plats
+     * @param slot String med given plats
+     */
     public void unequipWeapon(String slot){
         for(Weapon wep : equippedWep){
             if(wep.getSlot().equals(slot)){
@@ -364,6 +451,10 @@ public class Player extends Character{
         updateStats();
                     
     }
+    /**
+     * Tar av utrustning från given plats
+     * @param slot sträng med given plats
+     */
    public void unequipArmor(String slot){
         for(Armor arm : equippedArmor){
             if(arm.getSlot().equals(slot)){
@@ -394,7 +485,10 @@ public class Player extends Character{
         updateStats();
                     
     }
-    
+    /**
+     * Hämtar en lista med booleans för vilka platser som är "påklädda"
+     * @return boolean [] värden för varje plats
+     */
     public boolean [] getEquipped(){
         boolean [] equipped = new boolean []{headEquiped,
         chestEquiped,
@@ -407,6 +501,9 @@ public class Player extends Character{
         oneEquiped};
         return equipped;
     }
+    /**
+     *updaterar stats för hjälten. 
+     */
     public void updateStats(){
         defense = this.calcDef();
         attack = this.calcAtk();
@@ -418,21 +515,36 @@ public class Player extends Character{
         baseHP = (int) (thg*1.2);
         spd = calcSpd();
     }
+    /**
+     * Hämtar snabbheten 
+     * @return int snabbheten
+     */
     @Override
     public int getSpd(){
         return spd;
     }
-   
+    /**
+     * sätter HP till max HP.
+     */
     public void setBaseHP(){
         HP = baseHP;
     }
-    
+    /**
+     * lägger till ett vapen i "ryggsäcken".
+     * @param wep vapnet som ska läggas till
+     * @param loading boolean för om programmet laddar in en gubbe
+     */
     public void addWeapon(Weapon wep, boolean loading){
         wepInventory.add(wep);
         if(!loading){
         gold -= wep.getCost();
         }
     }
+    /**
+     * lägger till en utrusting i "ryggsäcken".
+     * @param arm  utrustning som ska läggas till
+     * @param loading boolean för om programmet laddar in något
+     */
     public void addArmor(Armor arm, boolean loading){
         armorInventory.add(arm);
         if(!loading){
@@ -440,19 +552,33 @@ public class Player extends Character{
         }
         
     }
+    /**
+     * hämtar  spelarens pengar
+     * @return int med pengar
+     */
     public int getGold(){
         return gold;
     }
+    /**
+     * Hämtar vapen-"inventoryt" 
+     * @return ArrayList med vapen
+     */
     public ArrayList <Weapon> getWepInv(){
         return wepInventory;
     }
+    /**
+     * Hämtar rustnings-"inventoryt" 
+     * @return ArrayList med rustning
+     */
     public ArrayList <Armor> getArmInv(){
         return armorInventory;
     }
-    public ArrayList <Integer> getBaseStats(){
-        return baseStats;
-    }
     
+    
+    /**
+     * Hämtar hjältens "stats"
+     * @return int [] med stats
+     */
     public int[] getStats(){
         int[] statList = new int[]{agi, str, spd, thg, onehand, twohand, shield, lvl, exp, baseHP, gold};
         return statList;
@@ -465,7 +591,10 @@ public class Player extends Character{
         }
        
     }
-    
+    /**
+     * Sätter stats för hjälten
+     * @param posts String [] med nya värden
+     */
     public void setStats(String[] posts) {
         for(int i = 1; i < posts.length; i++){
             //System.out.println(posts[i]);
@@ -508,6 +637,10 @@ public class Player extends Character{
             }
         }
     }
+    /**
+     * Skriver ut stats som en sträng
+     * @return Sträng med alla stats
+     */
     
     public String statsToString() {
         int[] statList = new int[]{agi, str, baseSpd, thg, onehand, twohand, shield, lvl, exp, baseHP, gold};
@@ -524,17 +657,20 @@ public class Player extends Character{
         }
         return name +", "+ s;
     }
-    
+    /**
+     * Hämtar namnet
+     * @return String med namnet
+     */
     @Override
     public String getName() {
         return name;
     }
 
-    @Override
-    public String toString() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+    
+    /**
+     * Kontrollerar om spelaren lever
+     * @return true om den lever false om den är död
+     */
     @Override
     public boolean isAlive() {
         if(HP <= 0){
@@ -544,20 +680,21 @@ public class Player extends Character{
         }  
     }
 
-    @Override
-    public boolean critHits(){
-        Random die = new Random();
-        
-        int r = die.nextInt(100) +1;
-        return r > crit;
-    }
-
+    
+    /**
+     * sätter nytt hp baserat på inkommande skada
+     * @param dmg inkommande skada
+     */
     @Override
     public void setNewHP(int dmg) {
         if(dmg > 0){
            HP -=dmg;
         }        
     }
+    /**
+     * Sätter nya stats då karaktären levlar up
+     * @param stats de valda statsen från  hero fönstret
+     */
     public void levelUP(int [] stats){
         for(int i = 0; i < stats.length; i++){
             switch(i){

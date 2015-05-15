@@ -5,19 +5,15 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author 96simrog
- */
+    /**
+     * Version 1.0.1.2
+     * @author Simon Hornestedt och Mattias Nordberg
+     */
 public class GUI extends javax.swing.JFrame {
     ImageIcon img;
     InventoryTableModel InventoryTable;
     Model mod;
+    
     /**
      * Creates new form GUI
      */
@@ -1042,7 +1038,11 @@ public class GUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    /**
+     * Sätter nödvändiga knappar synliga/osynliga
+     * @param b boolean true för synlig false för osynlig
+     */
     private void enableButtons(boolean b){
         menuItemSave.setEnabled(b);
         btnBuy1Handed.setEnabled(b);
@@ -1055,10 +1055,19 @@ public class GUI extends javax.swing.JFrame {
         btnEnterArena.setEnabled(b);
         btnMonsterInfo.setEnabled(b);
     }
+    
+    /**
+     * Knappevent för helpknappen
+     * @param evt Action event
+     */
     private void menuItemHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemHelpActionPerformed
        JOptionPane.showMessageDialog(null, "r u a n0b?");
     }//GEN-LAST:event_menuItemHelpActionPerformed
-
+    
+    /**
+     * Knappevent för cmb2handend
+     * @param evt Action event
+     */
     private void cmb2HandedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb2HandedActionPerformed
         switch(cmb2Handed.getSelectedIndex()){
             case 1: 
@@ -1081,7 +1090,11 @@ public class GUI extends javax.swing.JFrame {
             break;
         }
     }//GEN-LAST:event_cmb2HandedActionPerformed
-
+    
+    /**
+     * Knappevent för cmb1hand
+     * @param evt Action event
+     */
     private void cmb1HandedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb1HandedActionPerformed
         switch(cmb1Handed.getSelectedIndex()){
             case 1: 
@@ -1104,7 +1117,11 @@ public class GUI extends javax.swing.JFrame {
             break;
         }
     }//GEN-LAST:event_cmb1HandedActionPerformed
-
+    
+    /**
+     * Knappevent för cmbShield
+     * @param evt Action event
+     */
     private void cmbShieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbShieldActionPerformed
         switch(cmbShield.getSelectedIndex()){
             case 1: 
@@ -1116,13 +1133,21 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cmbShieldActionPerformed
     
+    /**
+     * Knappevent för exit knapp
+     * @param evt Action event
+     */
     private void menuItemExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemExitActionPerformed
         int option = JOptionPane.showConfirmDialog(null, "Do you really wish to exit the program?", "Exit?", JOptionPane.YES_NO_OPTION);
         if(option == JOptionPane.YES_OPTION){
         System.exit(EXIT_ON_CLOSE);
         }
     }//GEN-LAST:event_menuItemExitActionPerformed
-
+    
+    /**
+     * Knappevent för new knappen
+     * @param evt Action event
+     */
     private void menuItemNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewActionPerformed
         String newHeroName = JOptionPane.showInputDialog(null,
                 "Please choose a name for your gladiator:",
@@ -1134,11 +1159,19 @@ public class GUI extends javax.swing.JFrame {
             enableButtons(true);
         }        
     }//GEN-LAST:event_menuItemNewActionPerformed
-
+    
+    /**
+     * Knappevent för Save knapp
+     * @param evt Action event
+     */
     private void menuItemSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSaveActionPerformed
         mod.saveHero();
     }//GEN-LAST:event_menuItemSaveActionPerformed
-
+    
+    /**
+     * Knappevent för open knappen
+     * @param evt Action event
+     */
     private void menuItemOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemOpenActionPerformed
         Player tmp = mod.loadHero();
         if(tmp != null){
@@ -1150,7 +1183,11 @@ public class GUI extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_menuItemOpenActionPerformed
-
+    
+    /**
+     * Knappevent för btnBuy2hand
+     * @param evt Action event
+     */
     private void btnBuy2HandedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuy2HandedActionPerformed
         
         Weapon wep = new TwoHanded("dummy weapon");
@@ -1168,7 +1205,11 @@ public class GUI extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnBuy2HandedActionPerformed
-
+    
+    /**
+     * Knappevent för btnBuy1hand
+     * @param evt Action event
+     */
     private void btnBuy1HandedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuy1HandedActionPerformed
         Weapon wep = new OneHanded("dummy weapon");
         int i = cmb1Handed.getSelectedIndex();
@@ -1185,7 +1226,11 @@ public class GUI extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnBuy1HandedActionPerformed
-
+    
+    /**
+     * Knappevent för btnBuyShield
+     * @param evt Action event
+     */
     private void btnBuyShieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyShieldActionPerformed
         Weapon wep = new Shield("dummy weapon");
         int i = cmbShield.getSelectedIndex();
@@ -1201,7 +1246,11 @@ public class GUI extends javax.swing.JFrame {
                     + "find out what level is needed.");
         }
     }//GEN-LAST:event_btnBuyShieldActionPerformed
-
+    
+    /**
+     * Knappevent för btnBuyRing
+     * @param evt Action event
+     */
     private void btnRingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRingActionPerformed
         Armor arm = new Ring("dummy ring");
         int i = cmbRing.getSelectedIndex();
@@ -1217,14 +1266,22 @@ public class GUI extends javax.swing.JFrame {
                     + "find out what level is needed.");
         }
     }//GEN-LAST:event_btnRingActionPerformed
-
+    
+    /**
+     * Knappevent för info knapp
+     * @param evt Action event
+     */
     private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
        String slot = jTableInv.getValueAt(jTableInv.getSelectedRow(), 2).toString();
        String name = jTableInv.getValueAt(jTableInv.getSelectedRow(), 0).toString();
        String printString = mod.getInfo(slot, name);
        JOptionPane.showMessageDialog(null, printString);
     }//GEN-LAST:event_btnInfoActionPerformed
-
+    
+    /**
+     * Knappevent för btnBuyCloth
+     * @param evt Action event
+     */
     private void btnClothActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClothActionPerformed
         Armor arm = new Cloth("dummy cloth");
         int i = cmbCloth.getSelectedIndex();
@@ -1240,7 +1297,11 @@ public class GUI extends javax.swing.JFrame {
                     + "find out what level is needed.");
         }
     }//GEN-LAST:event_btnClothActionPerformed
-
+    
+    /**
+     * Knappevent för btnBuyLeather
+     * @param evt Action event
+     */
     private void btnLeatherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeatherActionPerformed
         Armor arm = new Leather("dummy leather");
         int i = cmbLeather.getSelectedIndex();
@@ -1256,7 +1317,11 @@ public class GUI extends javax.swing.JFrame {
                     + "find out what level is needed.");
         }
     }//GEN-LAST:event_btnLeatherActionPerformed
-
+    
+    /**
+     * Knappevent för btnBuyMetal
+     * @param evt Action event
+     */
     private void btnMetalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMetalActionPerformed
         Armor arm = new Metal("dummy metal");
         int i = cmbMetal.getSelectedIndex();
@@ -1272,68 +1337,111 @@ public class GUI extends javax.swing.JFrame {
                     + "find out what level is needed.");
         }
     }//GEN-LAST:event_btnMetalActionPerformed
-
+    /**
+     * Knappevent för equip knapp
+     * @param evt Action event
+     */
     private void btnEquipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEquipActionPerformed
         String slot = jTableInv.getValueAt(jTableInv.getSelectedRow(), 2).toString();
         String name = jTableInv.getValueAt(jTableInv.getSelectedRow(), 0).toString();
         mod.equipWeapon(slot, name);
         this.updateGearLbls();
     }//GEN-LAST:event_btnEquipActionPerformed
-
+    
+    /**
+     * Knappevent för lblShield
+     * @param evt Action event
+     */
     private void lblGearShieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGearShieldMouseClicked
         String slot = "Shield";
         mod.unequipWeapon(slot);
         this.updateGearLbls();
     }//GEN-LAST:event_lblGearShieldMouseClicked
-
+    
+    /**
+     * Knappevent för lblOneHanded
+     * @param evt Action event
+     */
     private void lblOneHandedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblOneHandedMouseClicked
         String slot = "1-Handed";
         mod.unequipWeapon(slot);
         this.updateGearLbls();
     }//GEN-LAST:event_lblOneHandedMouseClicked
-
+    
+    /**
+     * Knappevent för lblTwoHanded
+     * @param evt Action event
+     */
     private void lblTwoHandedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTwoHandedMouseClicked
         String slot = "2-Handed";
         mod.unequipWeapon(slot);
         this.updateGearLbls();
     }//GEN-LAST:event_lblTwoHandedMouseClicked
-
+   
+    /**
+     * Knappevent för lblHelm
+     * @param evt Action event
+     */
     private void lblHelmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHelmMouseClicked
         String slot = "Head";
         mod.unequipArmor(slot);
         this.updateGearLbls();
     }//GEN-LAST:event_lblHelmMouseClicked
-
+    
+    /**
+     * Knappevent för lblChest
+     * @param evt Action event
+     */
     private void lblChestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblChestMouseClicked
        String slot = "Chest";
         mod.unequipArmor(slot);
         this.updateGearLbls();
     }//GEN-LAST:event_lblChestMouseClicked
-
+    
+    /**
+     * Knappevent för lblArm
+     * @param evt Action event
+     */
     private void lblArmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblArmMouseClicked
        String slot = "Arm";
         mod.unequipArmor(slot);
         this.updateGearLbls();
     }//GEN-LAST:event_lblArmMouseClicked
-
+    
+    /**
+     * Knappevent för lblLegs
+     * @param evt Action event
+     */
     private void lblLegsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLegsMouseClicked
         String slot = "Legs";
         mod.unequipArmor(slot);
         this.updateGearLbls();
     }//GEN-LAST:event_lblLegsMouseClicked
-
+    
+    /**
+     * Knappevent för lblRing
+     * @param evt Action event
+     */
     private void lblRingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRingMouseClicked
         String slot = "Ring";
         mod.unequipArmor(slot);
         this.updateGearLbls();
     }//GEN-LAST:event_lblRingMouseClicked
-
+    
+    /**
+     * Knappevent för lblFeet
+     * @param evt Action event
+     */
     private void lblFeetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblFeetMouseClicked
         String slot = "Feet";
         mod.unequipArmor(slot);
         this.updateGearLbls();
     }//GEN-LAST:event_lblFeetMouseClicked
-
+    
+    /**
+     * Knappevent för btnEnterArena
+     * @param evt Action event
+     */
     private void btnEnterArenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterArenaActionPerformed
         Monster monster = new Monster("dummy");
         monster = monster.createCharacter(cmbMonster.getSelectedIndex());
@@ -1355,7 +1463,10 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEnterArenaActionPerformed
 
-    
+    /**
+     * Knappevent för btnSetStats
+     * @param evt Action event
+     */
     private void btnSetStatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetStatsActionPerformed
         int tgh, oneh, twoh, shield, agi, str, spd;
         try{
@@ -1427,49 +1538,81 @@ public class GUI extends javax.swing.JFrame {
             txfSpd.setText("0");
         }
     }//GEN-LAST:event_btnSetStatsActionPerformed
-
+   
+    /**
+     * Knappevent för lbl2Handed
+     * @param evt Action event
+     */
     private void lbl2HandedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl2HandedMouseClicked
         Weapon wep = new TwoHanded("dummy");
         wep = wep.createWeapon(cmb2Handed.getSelectedIndex());
         JOptionPane.showMessageDialog(null, wep.getInfo());
     }//GEN-LAST:event_lbl2HandedMouseClicked
-
+    
+    /**
+     * Knappevent för lbl1Handed
+     * @param evt Action event
+     */
     private void lbl1handedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl1handedMouseClicked
         Weapon wep = new OneHanded("dummy");
         wep = wep.createWeapon(cmb1Handed.getSelectedIndex());
         JOptionPane.showMessageDialog(null, wep.getInfo());
     }//GEN-LAST:event_lbl1handedMouseClicked
-
+    
+    /**
+     * Knappevent för lblShield
+     * @param evt Action event
+     */
     private void lblShieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblShieldMouseClicked
         Weapon wep = new Shield("dummy");
         wep = wep.createWeapon(cmbShield.getSelectedIndex());
         JOptionPane.showMessageDialog(null, wep.getInfo());
     }//GEN-LAST:event_lblShieldMouseClicked
-
+    
+    /**
+     * Knappevent för lblRing
+     * @param evt Action event
+     */
     private void lblRingsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRingsMouseClicked
         Armor arm = new Ring("dummy");
         arm = arm.createArmor(cmbRing.getSelectedIndex());
         JOptionPane.showMessageDialog(null, arm.getInfo());
     }//GEN-LAST:event_lblRingsMouseClicked
-
+    
+    /**
+     * Knappevent för lblMetal
+     * @param evt Action event
+     */
     private void lblMetalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMetalMouseClicked
         Armor arm = new Metal("dummy");
         arm = arm.createArmor(cmbMetal.getSelectedIndex());
         JOptionPane.showMessageDialog(null, arm.getInfo());
     }//GEN-LAST:event_lblMetalMouseClicked
-
+    
+    /**
+     * Knappevent för lblLeather
+     * @param evt Action event
+     */
     private void lblLeatherMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLeatherMouseClicked
         Armor arm = new Leather("dummy");
         arm = arm.createArmor(cmbLeather.getSelectedIndex());
         JOptionPane.showMessageDialog(null, arm.getInfo());
     }//GEN-LAST:event_lblLeatherMouseClicked
-
+    
+    /**
+     * Knappevent för lblMarketCloth
+     * @param evt Action event
+     */
     private void lblMarketClothMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMarketClothMouseClicked
         Armor arm = new Cloth("dummy");
         arm = arm.createArmor(cmbCloth.getSelectedIndex());
         JOptionPane.showMessageDialog(null, arm.getInfo());
     }//GEN-LAST:event_lblMarketClothMouseClicked
-
+    
+    /**
+     * Knappevent för about knappen
+     * @param evt Action event
+     */
     private void menuItemAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAboutActionPerformed
         JOptionPane.showMessageDialog(null, "This program was written by\n"
                 + "Simon Horenstedt\n"
@@ -1477,6 +1620,11 @@ public class GUI extends javax.swing.JFrame {
                 + "Version: 1.0.0\n"
                 + "\u00a9 2015-05-12 ");
     }//GEN-LAST:event_menuItemAboutActionPerformed
+    
+    /**
+     * Gör så att det går att använda textfält och knappar för att levla up en gång.
+     * @param b boolean true för redigerbara, false för icke redigerbara
+     */
     private void setLvlUPenabled(boolean b){
         btnSetStats.setEnabled(b);
         txf1h.setEditable(b);
@@ -1502,6 +1650,11 @@ public class GUI extends javax.swing.JFrame {
         txfSpd.setText("");
         
     }
+    
+    /**
+     * Uppdaterar table med aktuell Spelare
+     * @param hero Den aktuella spelaren 
+     */
     private void updateInventory(Player hero){
         int n = 0;
         for(int i = 0; i < 2; i++){
@@ -1531,6 +1684,10 @@ public class GUI extends javax.swing.JFrame {
             }
         }
     }
+    
+    /**
+     * Uppdaterar vilket gear som är på genom att göra lbls synliga/osynliga
+     */
     private void updateGearLbls(){
         Player hero = mod.getHero();
         boolean [] equipped = hero.getEquipped();
@@ -1566,6 +1723,11 @@ public class GUI extends javax.swing.JFrame {
             }
         }
     }
+    
+    /**
+     * sätter Gearlbls synliga/osynliga
+     * @param b false för osynlig true för synlig
+     */
     private void setGearVisibility(boolean b){
         lblHelm.setVisible(b);
         lblChest.setVisible(b);
@@ -1577,6 +1739,11 @@ public class GUI extends javax.swing.JFrame {
         lblOneHanded.setVisible(b);
         lblTwoHanded.setVisible(b);   
     }
+    
+    /**
+     * Uppdaterar heropanelen med stats
+     * @param tmp den aktuella spelaren
+     */
     private void updateHeroPnl(Player tmp){
         int [] statList = tmp.getStats();
 //        System.out.println(tmp.toString());
@@ -1594,6 +1761,7 @@ public class GUI extends javax.swing.JFrame {
         txfGold.setText(Integer.toString(statList[10]));
         
     }
+    
     /**
      * @param args the command line arguments
      */
